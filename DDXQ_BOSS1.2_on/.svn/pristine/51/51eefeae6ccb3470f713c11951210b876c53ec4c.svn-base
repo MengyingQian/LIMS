@@ -1,0 +1,12 @@
+*{margin: 0; padding: 0; color: #333;}
+body{font-family: 黑体; background: #fff; width: 100%; font-size: 0.7rem;}
+html {font-size: 62.5%;}
+.hd{width: 100%;background: #5fc2c9; color: #fff;text-align: center;height: 1.35rem;
+ line-height: 1.35rem;}
+.body-limian{width: 94%;margin: 45px auto 0; padding: 10px 0 0;}
+ .logo img{ height: 6rem; margin: 0.7rem auto;display: block;}
+.dangqian{text-align: center; font-size: 0.75rem; font-weight: 500;margin-bottom: 0.3rem;}
+.dangqian span{color:#f6383a; font-size: 0.8rem;}
+.button-danger.button-fill{width: 94%;margin: 0 auto; background: #5FC2C9;}
+.conten{width: 94%; margin: 0 auto;text-indent: 2em; padding: 0.5rem 0 0;}
+.ui-btn, .ui-btn-lg, .ui-btn-s{color: #fff;background: #5FC2C9;}

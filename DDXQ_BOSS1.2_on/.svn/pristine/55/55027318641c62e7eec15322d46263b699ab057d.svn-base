@@ -1,0 +1,7 @@
+body{padding-top: 45px; }
+.comment-others {margin-top: 0; padding: 10px 5%;color: #7e7b72;}
+.comment-others .date{position: inherit; float: left;}
+.zan{float: right;padding: 0 0 0 15px; }
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+span{color: #fe9a58;padding: 0 6px;font-size: 16px;}
+.aa{background: #000;}

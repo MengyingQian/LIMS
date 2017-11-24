@@ -1,0 +1,31 @@
+.ui-panel{margin: 0 auto ;}
+.zan{float: right;background: url(/view/pub/basic/img/kongzan.png) no-repeat 5px center;margin-right: 10px;}
+.zan2{float: right;background: url(/view/pub/basic/img/shizan.png) no-repeat 5px center;margin-right: 10px;}
+.huifu{float: right;background: url(/view/pub/basic/img/xiaoxi.png) no-repeat 5px center;}
+.zan,.zan2,.huifu{background-size: 16px auto;text-align: right;padding: 0 0 0 26px;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {background-color: #b1dae0;color: #fff;background-image:none;}
+.ui-header-positive, .ui-footer-positive {color: #fff;}
+.detail-header {height: auto;padding-bottom:10px;margin: 45px auto 0;}
+.detail-header .ui-list-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.comment-list-mul .comment-text {-webkit-line-clamp: 3000;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {
+    width: 100%;
+    height: 40px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#fff),to(#fafafa));
+    vertical-align: top;
+    color: #5FC2C9;
+    -webkit-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+   }

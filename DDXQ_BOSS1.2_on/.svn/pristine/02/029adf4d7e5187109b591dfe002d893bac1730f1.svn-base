@@ -1,0 +1,20 @@
+ html {font-size: 62.5%;}
+a{ text-decoration:none; outline:none;-webkit-tap-highlight-color:transparent;}
+*{padding: 0; margin: 0; font-size: 0.7rem; font-family: "黑体"; list-style-type: none;  color: #333;}
+ body{background: #f0f0f0; width: 100%; font-family: 黑体; font-size: 0.7rem;
+	font-family:Helvetica;margin-top: 65px;}   
+input{border: 0; outline: none;}	
+ .body-limiam{width: 100%; margin: 20px auto 9px auto; background: #fff; height: 2.1rem;}
+  .haoma{width: 95.8%; height: 2.1rem; margin: 0 auto 0 auto; border-bottom: #dcdcdc 1px solid;}
+ .haoma-L{float: left; margin-top: 0.7rem; margin-left: 19px; font-family: arial;}
+ .haoma-R input{float: left; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.45rem;}
+ .shoujihao{width: 95.8%; height: 2.1rem; margin: 0 auto 0 auto; border-bottom: #dcdcdc 1px solid;}
+ .shoujihao-L{float: left; margin-top: 0.7rem; margin-left: 19px;}
+ .shoujihao-R input{float: left; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.45rem;}
+.ui-btn-lg{width: 95%; margin: 6rem auto 0;color: #5fc2c9;border: 1px solid #B1DAE0;}
+.zhanhao{width: 94%; margin: 1rem auto;}
+.zhanhao-L{float: left;text-decoration: none;color: #5FC2C9;}
+.zhanhao-R{float: right;text-decoration: none;color: #5FC2C9;}
+.zhanhao a:active{text-decoration:underline;}

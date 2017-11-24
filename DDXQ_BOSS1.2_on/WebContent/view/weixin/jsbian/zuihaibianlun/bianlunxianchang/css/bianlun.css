@@ -1,0 +1,41 @@
+.dafen{width:100%;background:#fff;margin-bottom:10px;height:64px;color: #9d9ba1;}
+.dafen-L{height:100%;float:left;
+	line-height:64px;text-indent: 3.6em;background:url('/view/weixin/jsbian/zuihaibianlun/bianlunxianchang/img/geren.png') no-repeat 8% center;
+	background-size: 45px 45px;} 
+.zan{float: right;background: url('/view/weixin/jsbian/zuihaibianlun/bianlunxianchang/img/kongzan.png') no-repeat 5px center;margin-right: 10px;}
+.zan2{float: right;background: url('/view/weixin/jsbian/zuihaibianlun/bianlunxianchang/img/shizan.png') no-repeat 5px center;margin-right: 10px;}
+.huifu{float: right;background: url('/view/weixin/jsbian/zuihaibianlun/bianlunxianchang/img/xiaoxi.png') no-repeat 5px center;}
+.zan,.zan2,.huifu{background-size: 16px auto;text-align: right;padding: 0 0 0 26px;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {background-color: #b1dae0;color: #fff;background-image:none;}
+.ui-header-positive, .ui-footer-positive {color: #fff;}
+.detail-header {height: auto;padding-bottom:10px;margin: 45px auto 0;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.update_list h3.sticky{top: 40px;}
+.mod-list-anime>li:after, .mod-list-novel>li:after, .mod-list-comic>li:after,
+.ui-list li.mod-list-item-anime:after, .ui-list li.mod-list-item-novel:after,
+.ui-list li.mod-list-item-comic:after{background-image: none;}
+.huidingbu{position: fixed;z-index: 100;bottom: 35px;right: 20px;}
+.biaoti{display: -webkit-box;overflow: hidden;text-overflow: ellipsis;-webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;}
+.ui-footer-btn{background: #f2f2f2;text-align: center;color: #b1dae0;font-weight: 500;}
+.ui-btn-wrap{padding: 0;margin: 8px auto;height: 40px;width: 94%;border: 1px solid #B1DAE0;
+    border-radius: 5px;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {
+    width: 50%;
+    height: 40px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#fff),to(#fafafa));
+    vertical-align: top;
+    color: #5FC2C9;
+    -webkit-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+   }   
+   .detail-header .ui-list-img img {width: 100px;height: 100px; border-radius: 8px;}
+   
+   

@@ -1,0 +1,6 @@
+input{border:0;outline: none;}
+body{padding-top:40px; }
+.fenxiang{position: fixed;top: 11px;right: 15px;color: #b1dae0;border: none;z-index: 100;}
+.text input{text-indent: 1em;width: 100%;background: #f8f8f8;height:50px;line-height:50px;}
+.text .neirong{width: 92%; background: #fff; border: none;height:auto;
+	padding: 10px 4% 20px;line-height:25px;}

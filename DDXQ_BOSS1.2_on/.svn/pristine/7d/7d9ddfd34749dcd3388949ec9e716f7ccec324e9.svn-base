@@ -1,0 +1,16 @@
+body{padding-bottom:0;}
+.panel-heading img{width: 100%;}
+.ui-panel {margin: 43px auto 0;}
+.panel-heading{padding: 0;}
+.zan{float: right;padding: 0 0 0 15px; }
+.ui-btn, .ui-btn-lg, .ui-btn-s {background-color: #b1dae0;color: #fff;background-image:none;}
+.ui-header-positive, .ui-footer-positive {color: #fff;}
+.detail-header {height: 180px;padding-top:60px;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.book-list-vertical .ui-list>li.ui-border-t:first-child{background: none;padding-top: 10px;border-top: 1px solid #e0e0e0;}
+.book-list-vertical .ui-list>li,.ui-list>li{margin: 0; padding: 0 15px;}
+.comment-list-mul .comment-text{padding-top: 12px;}
+.ui-list li:nth-of-type(odd){background: transparent;}
+.ui-list li:nth-of-type(even){background: rgb(240, 240, 240);}
+.comment-info{width: 93%;}
+.user{line-height: 40px;margin-left: 15px;}

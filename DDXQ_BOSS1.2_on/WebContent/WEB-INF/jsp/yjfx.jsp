@@ -1,0 +1,231 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="/view/pub/basic/jsp/include.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="zh-cN">
+	<head>
+ <meta charset="utf-8"/>
+        <title>北邮泛网无线通信实验室</title>
+        <meta content="The Center for Complex Network Research (CCNR), directed by Professor Albert-László Barabási, has a simple objective: think networks. The center&#x27;s research focuses on how networks emerge, what they look like, and how they evolve; and how networks impact on understanding of complex systems." name="description"/>
+        <meta content="Publications" property="og:title"/>
+        <meta content="The Center for Complex Network Research (CCNR), directed by Professor Albert-László Barabási, has a simple objective: think networks. The center&#x27;s research focuses on how networks emerge, what they look like, and how they evolve; and how networks impact on understanding of complex systems." property="og:description"/>
+        <meta content="summary" name="twitter:card"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <link href="/view/pub/basic/css/yjfx.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../Content/animate.min.css">
+       
+<!--         <script type="text/javascript">
+            WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Heebo:100,300,regular,800","Playfair Display:regular,italic,700,700italic,900,900italic","Raleway:200,200italic,300,300italic,regular,italic,700,700italic"]  }});
+        </script>
+       
+        <script type="text/javascript">
+            !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);
+        </script> -->
+        <link href="/view/pub/basic/css/shiguang.css" rel="stylesheet"/>
+       
+       <script src="/view/pub/basic/js/jquery-2.2.3.min.js"type="text/javascript"></script>
+		<script src="/view/pub/basic/js/jquery.json.min.js"type="text/javascript"></script>
+		<script type="text/javascript"src="/view/pub/basic/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript"src="/view/pub/basic/easyui/locale/easyui-lang-zh_CN.js"></script>
+        <script src="/view/pub/basic/js/bootstrap.min.js"></script>
+      
+        <style>
+            .w-container {
+                max-width: 1100px;
+            }
+        </style>
+        
+      
+     
+
+	
+</head>
+    <body data-ix="fade-in-on-load" class="body">
+        <div data-collapse="medium" data-animation="default" data-duration="400" data-doc-height="1" class="navbar w-nav">
+            <div class="content-wrapper w-container">
+                <a href="/" class="brand w-nav-brand">
+                    <div class="lab-name">泛网无线通信实验室</div>
+                </a>
+                 <nav role="navigation" class="w-nav-menu">
+                   
+                    <form action="/ddxq/system/poweruser/index" method="post" class="top-nav-link w-nav-link" name="index"></form>
+                    <form action="/ddxq/system/poweruser/chengguo" method="post" class="top-nav-link w-nav-link" name="chengguo"></form>
+                    <form action="/ddxq/system/poweruser/chengyuan" method="post" class="top-nav-link w-nav-link" name="chengyuan"></form>
+                    <form action="/ddxq/system/poweruser/yjfx" method="post" class="top-nav-link w-nav-link" name="yjfx"></form>
+                    <form action="/ddxq/system/poweruser/xwzx" method="post" class="top-nav-link w-nav-link" name="xwzx"></form>
+                    <form action="/ddxq/system/poweruser/huojiang" method="post" class="top-nav-link w-nav-link" name="huojiang"></form>
+                    <a href="javascript:document.index.submit()" role="button" class="top-nav-link w-nav-link">首页</a>
+                    <a href="javascript:document.chengyuan.submit()" role="button" class="top-nav-link w-nav-link">课题组成员</a>     
+                    <a href="javascript:document.yjfx.submit()" role="button" class="top-nav-link w-nav-link">研究方向</a>
+                    <a href="javascript:document.xwzx.submit()" role="button" class="top-nav-link w-nav-link">新闻资讯</a>        
+                    <a href="javascript:document.chengguo.submit()" role="button" class="top-nav-link w-nav-link">论文发表</a>
+                    <a href="javascript:document.huojiang.submit()" role="button" class="top-nav-link w-nav-link">获奖情况</a>
+                </nav>
+                <div class="menu-button-2 w-nav-button">
+                    <div class="w-icon-nav-menu"></div>
+                </div>
+            </div>
+        </div>
+        <section class="banner">
+            <img  src="/view/pub/basic/images/banner-services.jpg" alt="weixin" class="banner-img" />
+            <div class="banner-content">
+                <div class="container">
+                    <h1 class="wow  bounceInRight">实验室课题组<span class="highlight">研究方向</span>一览</h1>
+                    <p class="lead wow bounceInRight" style="color: #fff" >Leading micro-channel marketing services platform to create a full range of marketing services!</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <a href="#Top" class="go-up w-inline-block"></a>
+        <!-- <div data-ix="move-up-go-up" class="header-section ministries">
+            <div class="content-wrapper w-container">
+                <h1 class="heading-1 white-and-big">Projects</h1>
+            </div>
+            <div class="overlay project-overlay"></div>
+        </div> -->
+        <div data-ix="move-up-on-scroll-3" class="content-section inner-pages">
+            <div data-ix="move-down-on-load" class="content-wrapper w-container">
+                <div class="title-box">
+                    <div class="title">研究方向</div>
+                </div>
+                <div class="w-dyn-list">
+                    <div class="flex-wrapper space-between w-dyn-items">
+                        <div class="ra-box w-clearfix w-dyn-item">
+                            <div class="ministry-top project-photo">
+                                <a data-ix="full-opacity-on-hover" target="_blank" style="background-image:url(&quot;https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26ff3/58ebe7b07af32752fd20db65_Screen%20Shot%202016-09-30%20at%2022.37.48.png&quot;);" class="ra-image rounded-image w-inline-block">
+                                    <div class="grey-overlay"></div>
+                                </a>
+                            </div>
+                            <div class="project-box">
+                                <a href="#" class="heading-link w-inline-block">
+                                    <h4 class="heading-4-link">5G组网及关键技术研究</h4>
+                                </a>
+                                <div class="project-description w-richtext">
+                                    <p>The brain project utilizes concepts and tools from network science to understand the structural principles of and functional implications for connectomes across species, from the nervous system of the model organism Caenorhabditis elegans, to the mouse, to the human. The brain is inherently multiscale in nature and may be conceptualized as a network at each level; from that of individual neurons and synapses to the integration of macroscopic brain regions. Recent rapid advances in neuroimaging technology and large collaborative efforts are driving an explosion of a wide variety of high quality data, which demand innovative approaches to understand and combine. We aim to tease apart and explain the roles of randomness and order in the complex geometry of and patterns within neural connections, and to develop experimentally testable hypotheses as regards to the fundamental principles behind the observed structure such as the necessity for the brain to control itself and the body to survive.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ra-box w-clearfix w-dyn-item">
+                            <div class="ministry-top project-photo">
+                                <a data-ix="full-opacity-on-hover" target="_blank" style="background-image:url(&quot;https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26ff3/58e3bae36e9d5ea73302c47e_2011-Flavor%20Network.jpg&quot;);" class="ra-image rounded-image w-inline-block">
+                                    <div class="grey-overlay"></div>
+                                </a>
+                            </div>
+                            <div class="project-box">
+                                <a href="#" class="heading-link w-inline-block">
+                                    <h4 class="heading-4-link">用户行为、网络信息等数据分析及资源</h4>
+                                </a>
+                                <div class="project-description w-richtext">
+                                    <p>The Foodome project is a part of a large research project dedicated to developing a systematic approach to analyzing the lifestyle factors that contribute to coronary heart disease (CHD). Our lab aims to develop the tools and computational/measurement framework to accurately detect the relation between diet and CHD.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ra-box w-clearfix w-dyn-item">
+                            <div class="ministry-top project-photo">
+                                <a data-ix="full-opacity-on-hover" target="_blank" style="background-image:url(&quot;https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26ff3/58e7a9773ae62c2c64774fbe_B_HospNetwork.png&quot;);" class="ra-image rounded-image w-inline-block">
+                                    <div class="grey-overlay"></div>
+                                </a>
+                            </div>
+                            <div class="project-box">
+                                <a href="#" class="heading-link w-inline-block">
+                                    <h4 class="heading-4-link">复杂网络、链路预测及推荐系统</h4>
+                                </a>
+                                <div class="project-description w-richtext">
+                                    <p>One of the most important issues today is improving healthcare quality on a large scale. We have begun looking at administrative healthcare data from California in the form of millions of individual patient hospital visits. Our goal is to understand how healthcare quality emerges as a network property from hospital networks and the ripple effects any one hospital node can have on the system.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ra-box w-clearfix w-dyn-item">
+                            <div class="ministry-top project-photo">
+                                <a data-ix="full-opacity-on-hover" target="_blank" style="background-image:url(&quot;https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26ff3/58e3ba31cbd929127500f19c_network-motifs-blue.jpg&quot;);" class="ra-image rounded-image w-inline-block">
+                                    <div class="grey-overlay"></div>
+                                </a>
+                            </div>
+                            <div class="project-box">
+                                <a href="#" class="heading-link w-inline-block">
+                                    <h4 class="heading-4-link">应用及其它 </h4>
+                                </a>
+                                <div class="project-description w-richtext">
+                                    <p>We are working on a number of studies that develop mathematical and theoretical models for understanding internal control mechanisms for complex self-organized systems. One can control the behavior of a large network by taking control actions on a comparatively small number of nodes because the network structure broadcasts the influence of these "driver nodes" to distant parts of the network. These findings have tremendous implications for designing, disrupting, or facilitating system capabilities, including physical systems (e.g., climate change and resilience of habitats), technological systems, and biological systems.</p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section">
+            <div class="footer">
+                <div class="content-wrapper w-container">
+                    <div class="flex-wrapper space-between">
+                        <div class="_33-percent-column footer-logo">
+                            <a href="http://nunetsi.org" target="_blank" class="w-inline-block">
+                                <img src="https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58c0eacec308a2772cd4f080_NU_NetworkScienceInstitute-black.png" srcset="https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58c0eacec308a2772cd4f080_NU_NetworkScienceInstitute-black-p-500x101.png 500w, https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58c0eacec308a2772cd4f080_NU_NetworkScienceInstitute-black-p-800x162.png 800w, https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58c0eacec308a2772cd4f080_NU_NetworkScienceInstitute-black-p-1080x218.png 1080w, https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58c0eacec308a2772cd4f080_NU_NetworkScienceInstitute-black-p-1600x323.png 1600w, https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58c0eacec308a2772cd4f080_NU_NetworkScienceInstitute-black.png 1917w" sizes="(max-width: 479px) 92vw, (max-width: 767px) 68vw, 31vw"/>
+                            </a>
+                        </div>
+                        <div class="_17-percent-column">
+                            <div class="footer-box-link">
+                                <div class="bottom-border mini-title">Menu</div>
+                                <a href="/" class="mini-title-link">home</a>
+                                <a href="/publications" class="mini-title-link">Publications</a>
+                                <a href="/people" class="mini-title-link">people</a>
+                                <a href="/jobs" class="mini-title-link">Jobs</a>
+                            </div>
+                        </div>
+                        <div class="_33-percent-column contact-details">
+                            <div class="bottom-border mini-title">Contact us</div>
+                            <div class="contact-details">
+                                <div class="contact-details-item">
+                                    <div>
+                                        <img src="https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58bcae2c9d6c401e73a2703d_Pin-2.png" width="16" class="contact-details-icon"/>
+                                    </div>
+                                    <div class="contact-detail-text-box">
+                                        <p class="contact-details-text">
+                                            Northeastern University<br/>
+                                            177 Huntington Ave.<br/>
+                                            11th floor<br/>Boston, MA 02115
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="contact-details-item">
+                                    <div>
+                                        <img src="https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58bcae2c9d6c401e73a27060_Phone%20(1).png" width="19" class="contact-details-icon"/>
+                                    </div>
+                                    <div class="contact-detail-text-box">
+                                        <p class="contact-details-text">617 373 2355</p>
+                                    </div>
+                                </div>
+                                <div class="contact-details-item">
+                                    <div>
+                                        <img src="https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/58d49c057dec36a576b49a4c_email-icon-126.png" width="19" class="contact-details-icon"/>
+                                    </div>
+                                    <div class="contact-detail-text-box">
+                                        <p class="contact-details-text">
+                                            <a href="mailto:s.aleva@neu.edu" class="footer-link">email</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="small-print">
+                <div class="content-wrapper w-container">
+                    <div>
+                        <p class="small-print-text">© 2017 Barabási Lab</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+        <script src="https://daks2k3a4ib2z.cloudfront.net/58bcae2c9d6c401e73a26fed/js/webflow.a34d28150.js" type="text/javascript"></script>
+        <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+    </body>
+</html>

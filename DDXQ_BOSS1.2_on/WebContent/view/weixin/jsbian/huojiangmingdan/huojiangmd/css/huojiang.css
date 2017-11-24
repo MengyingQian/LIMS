@@ -1,0 +1,8 @@
+*{margin: 0; padding: 0; color: #333;}
+body{font-family: 黑体; background: #fff; width: 100%; font-size: 0.7rem;}
+html {font-size: 62.5%;}
+a{text-decoration: underline; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+.hd{width: 95.8%; margin: 0 auto; border-bottom: #f0f0f0 1px solid; padding-bottom:1rem;}
+.hd-Top{margin: 2.5%; line-height: 1.15rem;}
+.hd-xiangqing{margin-right: 2.5%; float: right;}
+/*.hd:last-child{border-bottom: none;}*/

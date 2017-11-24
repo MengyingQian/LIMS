@@ -1,0 +1,12 @@
+*{margin: 0; padding: 0; color: #555;}
+body{font-family: 黑体; background: #fff; width: 100%; font-size: 0.7rem;}
+html {font-size: 62.5%;}
+a{text-decoration: underline; outline:none; color: #3f98f8;-webkit-tap-highlight-color:transparent;}
+.hd{margin: 0.7rem auto 0 6%;}
+.main{width: 88%; height: auto; margin: 0.6rem auto; line-height: 1.25rem;}
+.main-li{width: 84%; height: auto; margin: 0 auto;}
+.main-conten-ul{list-style: none; width: 100%;}
+.main-conten-L{display: inline-block;}
+.main-conten-R{display: block; float: right;margin-right: -8%; font-size: 0.6rem;}
+.main-li table{font-size: 0.6rem; width: 100%;}
+.main-li table td{width: 50%;}

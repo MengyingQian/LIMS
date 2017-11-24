@@ -1,0 +1,86 @@
+##driverClassName=com.mysql.jdbc.Driver
+validationQuery=SELECT 1
+
+write_jdbc_url_1=jdbc\:mysql\://10.108.199.208\:3306/ddxq?useUnicode\=true&characterEncoding\=UTF-8&zeroDateTimeBehavior\=convertToNull
+write_jdbc_username_1=root
+write_jdbc_password_1=123456
+write_initialSize_1=0
+write_maxActive_1=20
+write_minIdle_1=0
+write_maxWait_1=60000
+write_testOnBorrow_1=false
+write_testOnReturn_1=false
+write_testWhileIdle_1=true
+write_timeBetweenEvictionRunsMillis_1=60000
+write_minEvictableIdleTimeMillis_1=25200000
+write_removeAbandoned_1=true
+write_removeAbandonedTimeout_1=1800
+write_logAbandoned_1=true
+
+read_jdbc_url_1=jdbc\:mysql\://10.108.199.208\:3306/ddxq?useUnicode\=true&characterEncoding\=UTF-8&zeroDateTimeBehavior\=convertToNull
+read_jdbc_username_1=root
+read_jdbc_password_1=123456
+read_initialSize_1=0
+read_maxActive_1=20
+read_minIdle_1=0
+read_maxWait_1=60000
+read_testOnBorrow_1=false
+read_testOnReturn_1=false
+read_testWhileIdle_1=true
+read_timeBetweenEvictionRunsMillis_1=60000
+read_minEvictableIdleTimeMillis_1=25200000
+read_removeAbandoned_1=true
+read_removeAbandonedTimeout_1=1800
+read_logAbandoned_1=true
+
+id_add_step=1000
+
+thread_limit=500
+
+##mq_brokerURL=failover:(tcp://localhost:61616,tcp://192.168.53.201:61617)
+mq_brokerURL=failover:(tcp://localhost:61616)
+mq_receiveTimeout=6000
+
+## redis_addr=127.0.0.1
+## redis_port=6379
+##redis_auth=
+## redis_max_active=1024
+## redis_max_idle=200
+## redis_max_wait=10000
+## redis_test_on_borrow=true
+redis_addr=10.108.199.208
+redis_port=6379
+redis_auth=123
+redis_max_active=1024
+redis_max_idle=200
+redis_max_wait=10000
+redis_timeout=10000
+redis_test_on_borrow=true
+
+#domainconfig
+static_domainName=info.bjwkyy.net
+boss_domainName=ddxq-boss.tunnel.qydev.com
+mobile_domainName=ddxq-wx.tunnel.qydev.com
+#mobile_domainName=zxz430.oicp.net
+fastdfs_domainName=ddxq-repo.tunnel.qydev.com
+tracker_http_port=80
+tracker_server=10.108.199.208
+
+qr_expireTime=2592000
+#weixin platform
+weixin.AppID=wxcd3ede195a2d02bc
+weixin.AppSecret=45b5889181a94c9ef4204a656a5fd2d1
+weixin.WeiXinCode=weixinFuWuTong
+weixin.token=ddxq
+
+#http://ddxq_wx.tunnel.qydev.com/jzsn/wx/base/WeiXinServlet
+
+#weixin infoÅ
+weixin.welcomeMsg=\u6B22\u8FCE\u8BBF\u95EE\u541B\u5B50\u6DD1\u5973\uFF01
+weixin.welcomTip=
+#https timeout settings
+#pay
+weixin.APIKey=Wkmhs2015Wkyy201518600697266yzlz
+weixin.mchId=1254538601
+#menu
+weixin.menu=/WEB-INF/config/deploy/weixinMenu.json

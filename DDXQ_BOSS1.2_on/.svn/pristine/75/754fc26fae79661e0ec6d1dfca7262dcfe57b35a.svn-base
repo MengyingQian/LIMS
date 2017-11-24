@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd  
+http://www.springframework.org/schema/data/mongo  http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd  
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<!-- the first quartz progress -->
+	<bean id="demoJobQuartz" class="com.ddxq.mytest.globe.quartz.DemoQuartz">
+		<property name="isOpen" value="1" />  <!-- 定时器开关：1,生效；0，不生效 -->
+	</bean>
+	
+	<!-- 启动触发器的配置开始 -->
+	<bean id="demoCheckStartQuertz"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		lazy-init="false">
+		<property name="triggers">
+			<list>
+				<ref bean="demoDoTimeQuartz" />
+			</list>
+		</property>
+	</bean>
+    <!-- 启动触发器的配置结束 -->
+
+    <!-- 自动测试任务的配置 -->
+    <bean id="demoDoTimeQuartz" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail">
+			<ref bean="demoJobtaskQuartz" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 14 * * ?</value><!-- 定时器时间表达式 -->
+			<!-- <value>0/10 * * * * ?</value>-->
+		</property>
+    </bean>
+    <!-- 调度的配置结束 -->
+
+    <!-- job的配置开始 -->
+	<bean id="demoJobtaskQuartz"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="demoJobQuartz" />
+		</property>
+		<property name="targetMethod">
+			<value>executeInternal</value>
+		</property>
+	</bean>
+	<!-- mysecond -->
+	<bean id="hotLevel" class="com.ddxq.boss.base.service.quartz.HotlevelUpdate">
+	
+	</bean>
+	<!-- 启动触发器的配置开始 -->
+ 	<bean id="startConfigHotLevel"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		lazy-init="false">
+		<property name="triggers">
+			<list>
+				<ref bean="changeHotLevel" />
+			</list>
+		</property>
+	</bean> 
+    <!-- 启动触发器的配置结束 -->
+	 <!-- 自动测试任务的配置 -->
+    <bean id="changeHotLevel" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail">
+			<ref bean="jobChangeHotLevel" />
+		</property>
+		<property name="cronExpression">
+			<value>0 */30 * * * ?</value><!-- 定时器时间表达式,半个小时算一次 -->
+			<!-- <value>0/10 * * * * ?</value>-->
+		</property>
+    </bean>
+    <!-- 调度的配置结束 -->
+     <!-- job的配置开始 -->
+	<bean id="jobChangeHotLevel"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="hotLevel" />
+		</property>
+		<property name="targetMethod">
+			<value>executeInternal</value>
+		</property>
+	</bean>
+     <!-- job的配置结束 -->
+
+    <!-- the second quartz progress -->
+	<bean id="messageToMassUsers" class="com.ddxq.boss.base.service.quartz.MsgToUsersServiceImpl">
+		<property name="isOpen" value="1" />  <!-- 定时器开关：1,生效；0，不生效 -->
+	</bean>
+	
+	<!-- 启动触发器的配置开始 -->
+	<bean id="messageToMassUsersCheckStartQuertz"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		lazy-init="false">
+		<property name="triggers">
+			<list>
+				<ref bean="messageToMassUsersTimeQuartz" />
+			</list>
+		</property>
+	</bean>
+    <!-- 启动触发器的配置结束 -->
+
+    <!-- 自动测试任务的配置 -->
+    <bean id="messageToMassUsersTimeQuartz" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="messageToMassUsersQuartz" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 6 * * ?</value><!-- 定时器时间表达式 -->
+			<!-- <value>0/10 * * * * ?</value>-->
+		</property>
+    </bean>
+    <!-- 调度的配置结束 -->
+
+    <!-- job的配置开始 -->
+	<bean id="messageToMassUsersQuartz"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="messageToMassUsers" />
+		</property>
+		<property name="targetMethod">
+			<value>executeInternal</value>
+		</property>
+	</bean>
+	<!-- demo定时任务  end -->
+
+</beans>

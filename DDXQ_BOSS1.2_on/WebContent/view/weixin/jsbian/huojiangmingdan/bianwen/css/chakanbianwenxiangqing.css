@@ -1,0 +1,68 @@
+*{margin: 0; padding: 0; color: #333;}
+body{font-family: 黑体; background: #f0f0f0; width: 100%; font-size: 0.7rem;}
+html {font-size: 62.5%;}
+a{ text-decoration:underline; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+.main{width: 88%; height: auto; padding: 0.8rem 6% 1.5rem 6%; line-height: 1.25rem;
+ background: #fff;}
+.main-hd{padding: 0 0.5rem;text-align: center;}
+.main-C{text-indent: 2em; line-height: 1rem;}
+.main-B{float: right;line-height: 1.25rem;}
+.main2{width: 88%; height: auto; padding: 0.4rem 6% 1.5rem 6%; line-height: 1.25rem;
+ background: #fff; margin: 0.5rem auto;}
+.main3{width: 88%; height: 10rem; padding: 0.4rem 6% 1.5rem 6%; line-height: 1.25rem;
+ background: #fff; margin: 0.5rem auto;position: relative;}
+.main2-li{width: 84%; height: auto; margin: 0 auto;}
+.main2-conten-ul{list-style: none; width: 100%;}
+.main2-conten-L{display: inline-block;}
+.main2-conten-R{display: block; float: right;margin-right: -8%;font-size: 0.6rem;}
+.dianping{width: 100%; font-size: 0.6rem; line-height: 1rem; margin: 0.3rem 0 0.2rem 0;}
+.dianping-L{float: left;}
+.dianping-C{float: right;}
+.dianping-R{float: right; margin-right: 1rem;}
+.pinglun{width: 97%; height: 6rem; margin: 0.6rem auto; border: #f0f0f0 1px solid;
+	padding: 2% 2%; display: none;}
+.pinglun input{float: right; border: 0; outline: none; background: #fff;
+	font-size: 0.6rem;color: #333;margin: 0.3rem 3% 0;}
+textarea{width: 100%; border: 0; outline: none; height: 75%; font-size: 0.7rem;
+ text-indent: 2em;color: #333; background: #fff;-webkit-tap-highlight-color:transparent;}
+ .weui2_btn {
+  width: 95.8%;
+  display: block;
+  height: 2.2rem;
+  margin:  1rem auto 2rem;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  line-height: 2.2rem;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+.weui2_btn.weui2_btn_inline {
+  display: inline-block;
+}
+.weui2_btn_default {
+  background-color: #F7F7F7;
+  color: #454545;
+}
+.weui2_btn_default:not(.weui2_btn_disabled):visited {
+  color: #454545;
+}
+.weui2_btn_default:not(.weui2_btn_disabled):active {
+  color: #A1A1A1;
+  background-color: #DEDEDE;
+}
+.weui2_btn_primary {
+  background-color: #04BE02;
+}
+.weui2_btn_primary:not(.weui2_btn_disabled):visited {
+  color: #FFFFFF;
+}
+.weui2_btn_primary:not(.weui2_btn_disabled):active {
+  color: rgba(255, 255, 255, 0.4);
+  background-color: #039702;
+}

@@ -1,0 +1,24 @@
+.ui-panel{margin: 40px 0 0;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {background-color: #b1dae0;color: #fff;background-image:none;}
+.ui-header-positive, .ui-footer-positive {color: #fff;}
+.detail-header {height: 180px;padding-top:60px;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+li{background: #fff;}
+.comment-list-mul .comment-text {-webkit-line-clamp: 50;}
+.ui-footer{border-top: 1px solid #B1DAE0; height: 45px;}
+.ui-border-r{border-right: 1px solid #B1DAE0;}
+.dianping-R{ background: url(/view/weixin/jsbian/zuihaibianlun/bianwenxiangqing/img/kongzan.png) no-repeat 10px 8px;}
+ .dianping-R2{ background: url(/view/weixin/jsbian/zuihaibianlun/bianwenxiangqing/img/shizan.png) no-repeat 10px 8px;}
+ .xiaoxi{background: url(/view/weixin/jsbian/zuihaibianlun/bianwenxiangqing/img/xiaoxi.png) no-repeat 10px center;}
+.dianping-R,.dianping-R2{padding: 0 38px;height: 50px; line-height: 50px; background-size: 25px auto;}
+.xiaoxi{padding: 0 38px;height: 50px; line-height: 50px; background-size: 20px auto;}
+.ui-dialog-cnt{margin: 70px auto;width: 80%;}
+.ui-dialog-cnt textarea{width: 94%;height: 300px;padding:5px 3%;background: #fff;border: none;outline: none;
+	border-radius: 5px;}	
+.comment-list-mul .comment-title {
+font-size: 17px;
+text-align: center;
+display: block;
+font-weight: bold;
+}
+

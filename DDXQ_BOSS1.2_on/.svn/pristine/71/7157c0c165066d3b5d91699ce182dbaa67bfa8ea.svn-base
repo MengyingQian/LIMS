@@ -1,0 +1,552 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="/view/pub/basic/jsp/include.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/css/demo.css">
+	<script type="text/javascript"src="/view/pub/basic/js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/js/jquery.json.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script src="/view/pub/basic/js/ajaxfileupload.js" type="text/javascript"></script>
+	<script type="text/javascript">	
+		$(function(){
+			$('#dlg').dialog('close');	
+			$('#dlg2').dialog('close');	
+			$("#dg").datagrid('options').url ='/ddxq/admin/fwzs/getInfo';
+	    	$("#dg").datagrid('reload');
+	    	/* $("#selectactor").combobox({ disabled: true}); */
+		})
+</script>
+</head>
+<body style="font-family: verdana, helvetica, arial, sans-serif;
+    font-size: 0px;
+    padding: 0px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-left: 2px;">
+	<table id="dg" class="easyui-datagrid" title="当前租售列表"  fit="true" data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				url: '/ddxq/admin/fwzs/getInfo',
+				method: 'get',
+				onDblClickCell: onClickCell,
+			">
+
+			<thead>
+				<tr>
+					<th data-options="field:'districtname',width:90">小区名称</th> 
+					<th data-options="field:'title',width:90">标题</th>
+					<th data-options="field:'buildingname',width:90">楼房名称</th>
+					<th data-options="field:'buildingnum',width:90,align:'center'">楼房编号</th>
+					<th data-options="field:'house_floor',width:90,align:'center'">房屋楼层</th>
+					<th data-options="field:'house_type',width:90,align:'center'">房屋户型</th>
+					<th data-options="field:'house_orientation',width:60,align:'center'">房屋朝向</th>
+					<th data-options="field:'house_num',width:90,align:'center'">房屋门牌号</th>
+					<!-- <th data-options="field:'sales',width:90,align:'center'">已售数量</th> -->
+					<th data-options="field:'house_area',width:90,align:'center'">建筑面积(m²)</th>
+					<th data-options="field:'house_age',width:90,align:'center'">房屋年代(年)</th>
+					<th data-options="field:'house_decoration',width:90,align:'center'">装修情况</th>
+					<th data-options="field:'house_advantages',width:90,align:'center'">房屋优势</th>
+					<th data-options="field:'price',width:80,align:'center'">价格</th>
+					<th data-options="field:'phone',width:90,align:'center'">联系电话</th>
+					<th data-options="field:'status',width:20,align:'center'">状态</th>
+					<th data-options="field:'created',width:120,align:'center'">创建时间</th>
+					<th data-options="field:'updated',width:120,align:'center'">更新时间</th>
+					<th data-options="field:'expired',width:120,hidden:true,align:'center'">过期时间</th>
+					<th data-options="field:'sort',width:120,align:'center',hidden:true"></th>
+					<th data-options="field:'type',width:120,align:'center',hidden:true"></th>
+					<th data-options="field:'docid',width:0,hidden:true,align:'center'"></th>
+					<th data-options="field:'house_photo_0',hidden:true,width:0,align:'center'"></th>
+					<th data-options="field:'house_photo_1',hidden:true,width:0,align:'center'"></th>
+					<th data-options="field:'house_photo_2',hidden:true,width:0,align:'center'"></th>
+					<th data-options="field:'house_photo_3',hidden:true,width:0,align:'center'"></th>
+					
+				</tr>
+			</thead>
+		</table>
+		<div>
+			<input type="hidden" id="disid" name="disid" value="${sessionScope.districtId}" /> 
+			<input type="hidden" id="sellerphone" name="sellerphone" value="${seller.employeeMobile}" /> 
+		</div>
+	<div id="tb" style="height:auto">	
+			<select class="easyui-combobox"id="selectRoom" label="选择租售类型" style="width:20%"><option value="all">所有信息</option><option value="rent:A">出租</option><option value="sale:A">出售</option><option value="rent:B">求租</option><option value="sale:B">求购</option></select>
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchData()">查询</a>
+			<br/>
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">添加租售信息</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="getSelect()">删除租售信息</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"">双击修改租售信息</a>
+		</div>
+		<div id="dlg" class="easyui-dialog" title="添加租售信息" data-options="iconCls:'icon-save'" style="width:450px;height: 420px;padding:5px">
+			<form id="ff" method="post">
+				<div style="margin-bottom:10px">
+					<select class="easyui-combobox"id="type" name="type" label="选择租售类型"required="true" style="width:90%"><option value="rent:A">出租</option><option value="sale:A">出售</option><option value="rent:B">求租</option><option value="sale:B">求购</option></select>
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="title" name="title" style="width:90%" data-options="label:'设置标题:',prompt:'例如 xxxx小区出租,急',required:true,validType:'length[1,18]'">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="districtname" name="districtname" style="width:90%" data-options="label:'小区名称:',required:true">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="buildingname" name="buildingname" style="width:90%" data-options="label:'楼房名称:',required:true">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="buildingnum" name="buildingnum" style="width:90%" data-options="label:'楼房编号:',required:true">
+				</div>
+				<div style="margin-bottom:10px">
+					<input placeholder="" class="easyui-textbox" id="house_floor" name="house_floor" style="width:90%" data-options="label:'房屋楼层:',required:true" >
+				</div>							
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_type" name="house_type" style="width:90%" data-options="label:'房屋户型:',required:true,prompt:'例如  三室一厅',validType:'length[1,8]'">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_orientation" name="house_orientation" style="width:90%" data-options="label:'房屋朝向:',required:true,prompt:'例如  朝南'" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_num" name="house_num" style="width:90%" data-options="label:'房屋门牌号:',required:true" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="house_area" name="house_area" style="width:90%" data-options="label:'建筑面积m²:',required:true" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="house_age" name="house_age" style="width:90%" data-options="label:'房屋年代:',required:true,prompt:'例如  2017年'" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_decoration" name="house_decoration" style="width:90%" data-options="label:'房屋装修情况:',required:true" >
+				</div>
+					<div style="margin-bottom:10px">
+					房屋优势1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="easyui-textbox" id="house_advantages1" name="house_advantages1" style="width:16%" data-options="required:true,prompt:'最多5字',validType:'length[1,5]'" >
+					房屋优势2:<input class="easyui-textbox" id="house_advantages2" name="house_advantages2" style="width:16%" data-options="prompt:'最多5字',validType:'length[0,5]'" >
+					房屋优势3:<input class="easyui-textbox" id="house_advantages3" name="house_advantages3" style="width:16%" data-options="prompt:'最多5字',validType:'length[0,5]'" >
+				</div>
+					<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="price" name="price" style="width:90%" data-options="label:'租售价格',required:true,prompt:'请填数字,租房单位为(元/月)  售房单位为(万元)'" >
+				</div>
+					<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="phone" name="phone" style="width:90%" data-options="label:'联系电话',required:true" >
+				</div>
+					<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="sort" name="sort" style="width:90%" data-options="label:'排序号',required:true,prompt:'数字，大数排在前',validType:'length[1,5]'" >
+				</div>
+				<div style="margin-bottom:10px">
+					<select class="easyui-combobox"id="status" name="status" label="选择消息状态"required="true" style="width:90%"><option value="1">正常</option><option value="0">失效</option></select>
+				</div>
+				<div style="margin-bottom:10px">
+					<img id="showimage" src="/view/seller/xqcs/img/noimage.jpg" style="width:150px;position:relative;float:left;left:150px;" >
+				</div>
+				<div style="margin-bottom:10px">
+            			<div class="easyui-linkbutton" id="upmin" style="width:80%;margin-bottom: 20px;margin-top: 9px;margin-left: 65px;margin-right: 50px;">上传主图（列表展示，必选）</div>
+						<input type="file" onchange="uploadHead();" id="upfile" style="display:none;" name="upfile" />  
+						<input type="hidden" id="house_photo_0" name="house_photo_0"  value="">  
+				</div>
+				<div style="margin-bottom:10px">
+					<img id="showimage1" src="/view/seller/xqcs/img/noimage.jpg" style="width:150px;position:relative;float:left;left:150px">
+				</div>	
+				<div style="margin-bottom:10px">
+            			<div class="easyui-linkbutton" id="up1" style="width:80%;margin-bottom: 5px;margin-top: 9px;margin-left: 65px;margin-right: 50px;">上传图1（详情页展示）</div>
+						<div class="easyui-linkbutton" id="reup1" style="width:80%;margin-bottom: 20px;margin-top: 2px;margin-left: 65px;margin-right: 50px;">图片与主图相同</div>
+						<input type="hidden" id="house_photo_1" name="house_photo_1" value="" > 
+				</div>
+				<div style="margin-bottom:10px">
+					<img id="showimage2" src="/view/seller/xqcs/img/noimage.jpg" style="width:150px;position:relative;float:left;left:150px">
+				</div>	
+				<div style="margin-bottom:10px">
+            			<div class="easyui-linkbutton" id="up2"  style="width:80%;margin-bottom: 5px;margin-top: 9px;margin-left: 65px;margin-right: 50px;">上传图2（详情页展示）</div>
+						<div class="easyui-linkbutton" id="reup2" style="width:80%;margin-bottom: 20px;margin-top: 2px;margin-left: 65px;margin-right: 50px;">图片与主图相同</div>
+						<input type="hidden" id="house_photo_2" name="house_photo_2" value="" > 
+				</div>
+				<div style="margin-bottom:10px">
+					<img id="showimage3" src="/view/seller/xqcs/img/noimage.jpg" style="width:150px;position:relative;float:left;left:150px">
+				</div>	
+				<div style="margin-bottom:10px">
+            			<div class="easyui-linkbutton" id="up3"  style="width:80%;margin-bottom: 5px;margin-top: 9px;margin-left: 65px;margin-right: 50px;">上传图3（详情页展示）</div>
+						<div class="easyui-linkbutton" id="reup3" style="width:80%;margin-bottom: 20px;margin-top: 2px;margin-left: 65px;margin-right: 50px;">图片与主图相同</div>
+						<input type="hidden" id="house_photo_3" name="house_photo_3" value="" > 
+				</div>
+					<input type="hidden"  id="temp" name="temp" />
+			</form>
+			<div style="text-align:center;padding:5px 0">
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">添加信息</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">清空</a>
+			</div>
+			<script  type="text/javascript">
+				function append(){
+					$("#showimage").attr('src',"/view/seller/xqcs/img/noimage.jpg"); 
+					$("#showimage1").attr('src',"/view/seller/xqcs/img/noimage.jpg"); 
+					$("#showimage2").attr('src',"/view/seller/xqcs/img/noimage.jpg"); 
+					$("#showimage3").attr('src',"/view/seller/xqcs/img/noimage.jpg");
+					$('#house_photo_0').val();
+					$('#house_photo_1').val();
+					$('#house_photo_2').val();
+					$('#house_photo_3').val();
+					var id = $("#disid").val();
+					$("#districtId").textbox('setValue',id);
+					$('#dlg').dialog('open');	
+				}
+			</script>
+			<script  type="text/javascript">
+				$(document).ready(function(){
+					$('#upmin').on('click',function(){ 
+						$("#temp").val(0);
+				     	$('#upfile').click();
+				    });
+					$('#up1').on('click',function(){  
+						$("#temp").val(1);
+				     	$('#upfile').click(); 
+				    });
+					$('#up2').on('click',function(){ 
+						 $("#temp").val(2);
+				     	$('#upfile').click();  
+				    });
+					$('#up3').on('click',function(){  
+						$("#temp").val(3);
+				     	$('#upfile').click();  
+				    });
+					$('#reup1').on('click',function(){  
+						var photo_min = $("#house_photo_0").val();
+						if (null == photo_min || photo_min == ""){
+							alert("请上传主图");
+							return false;
+						}
+						var showimage = $("#showimage")[0].src; 
+	    	    	   $("#showimage1").attr('src',showimage);  
+		  	           $("#house_photo_1").val(photo_min); 		
+				    });
+					$('#reup2').on('click',function(){
+						var photo_min = $("#house_photo_0").val();
+						if (null == photo_min || photo_min == ""){
+							alert("请上传主图");
+							return false;
+						}
+						var showimage = $("#showimage")[0].src; 
+	    	    	   $("#showimage2").attr('src',showimage);  
+		  	           $("#house_photo_2").val(photo_min); 
+				    });
+					$('#reup3').on('click',function(){  
+						var photo_min = $("#house_photo_0").val();
+						if (null == photo_min || photo_min == ""){
+							alert("请上传主图");
+							return false;
+						}
+						var showimage = $("#showimage")[0].src; 
+	    	    	   $("#showimage3").attr('src',showimage);  
+		  	           $("#house_photo_3").val(photo_min); 
+				    });
+				});
+				</script>
+			<script  type="text/javascript">
+				function uploadHead(){
+					  $.ajaxFileUpload({  
+					      url:"/ddxq/seller/xqcs/headimagesave",//需要链接到服务器地址   
+					      secureuri:false,  
+					      fileElementId:"upfile",//文件选择框的id属性  ,name属性
+					      dataType: 'json',   //json  
+					      success: function (data) {
+					    	       var temp = parseInt($("#temp").val());
+					    	       if(temp==0){
+					    	    	 	$("#showimage").attr('src',data.imagePath);  
+						  	        	$('#house_photo_0').val(data.imagePathShort); 
+					    	       }else {
+					    	    	   var id1="#showimage"+temp;
+					    	    	   var id2="#house_photo_"+temp;
+					    	    	   $(id1).attr('src',data.imagePath);  
+						  	           $(id2).val(data.imagePathShort); 				    	    	   
+					    	       }
+					      },
+					      error: function(XMLHttpRequest, textStatus, errorThrown){  
+					     		alert('上传失败！');
+					   	  }
+					  });  
+					};
+		</script>
+			<script type="text/javascript">
+				function getData() {
+					var retData = {};	
+					retData.districtname = $("#districtname").textbox('getValue');
+					retData.title = $("#title").textbox('getValue');			
+					retData.buildingname = $("#buildingname").textbox('getValue');					
+					retData.buildingnum = $("#buildingnum").textbox('getValue');
+					retData.house_floor = $("#house_floor").textbox('getValue');
+					retData.house_type = $("#house_type").val();
+					retData.house_orientation = $("#house_orientation").textbox('getValue');		
+					retData.house_area = $("#house_area").numberbox('getValue');
+					retData.house_age = $("#house_age").numberbox('getValue');
+					retData.house_num = $("#house_num").textbox('getValue');
+					retData.house_decoration = $("#house_decoration").textbox('getValue');
+					retData.house_advantages = $("#house_advantages1").textbox('getValue') +"*"+$("#house_advantages2").textbox('getValue')+"*"+ $("#house_advantages3").textbox('getValue');
+					retData.price = $("#price").numberbox('getValue');
+					retData.phone = $("#phone").numberbox('getValue');
+					retData.sort = $("#sort").numberbox('getValue');
+					retData.status = $("#status").numberbox('getValue');
+					retData.house_photo_0 = $("#house_photo_0").val();
+					retData.house_photo_1 = $("#house_photo_1").val();
+					retData.house_photo_2 = $("#house_photo_2").val();
+					retData.house_photo_3 = $("#house_photo_3").val();
+					retData.type = $("#type").combobox('getValue');
+					retData.show=$("#selectRoom").combobox('getValue');
+					return retData;
+				}
+				function checkData(retData){
+					if(retData.house_photo_0==""){
+						alert("请上传第一张图片");
+						return false;
+						
+					}
+					 if(retData.house_photo_1==""){
+						retData.house_photo_1=$("#house_photo_0").val();
+					} 
+					if(retData.house_photo_2==""){
+						retData.house_photo_2=$("#house_photo_0").val();
+					}
+					if(retData.house_photo_3==""){
+						retData.house_photo_3=$("#house_photo_0").val();
+					}
+				}
+				
+				function submitForm() {
+					var retData = getData();
+					var flag=checkData(retData);
+					if(flag==false){
+						return false;
+					}
+					var check=$("#ff").form('enableValidation').form('validate');
+					if(check==false){
+						alert("请填写完整");
+						return false;
+					}
+
+					$.ajax({
+						url: '/ddxq/admin/fwzs/insertInfo',
+						data: $.toJSON(retData),
+						type: 'post',
+						dataType: 'json',
+						contentType: 'application/json',
+						cache: false,
+						async: false,
+						success: function(data) {
+							if(data.success == true) {
+								$('#dlg').dialog('close');
+								$('#ff').form('clear');
+								alert("插入成功");
+								/* $("#districtIdFrom").numberbox('setValue', data.districtId); */
+								$("#dg").datagrid('options').url = data.url;
+								$("#dg").datagrid('reload');
+							} else {
+								alert("插入失败");
+							}
+						},
+						error: function(xhr) {}
+					});
+				}
+
+				function clearForm() {
+				/* 	$('#ff').form('clear'); */
+					$(':input','#ff') 
+					.not(':button, :submit, :reset, :hidden,:disabled') 
+					.val('') 
+				}
+			</script>
+
+		</div>
+	<div id="dlg2" class="easyui-dialog" title="修改信息" data-options="iconCls:'icon-save'" style="width:450px;height: 420px;padding:5px">	
+		<form id="ff2" method="post">
+				<div style="margin-bottom:10px">
+					<select class="easyui-combobox"id="type2" name="type2" label="选择租售类型" required="true"  style="width:90%"><option value="rent:A">出租</option><option value="sale:A">出售</option><option value="rent:B">求租</option><option value="sale:B">求购</option><</select>
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="title2" name="title2" style="width:90%" data-options="label:'设置标题:',prompt:'例如 xxxx小区出租,急！',required:true,validType:'length[1,18]'">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="districtname2" name="districtname2" style="width:90%" data-options="label:'小区名称:',required:true">
+				</div>				
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="buildingname2" name="buildingname" style="width:90%" data-options="label:'楼房名称:',required:true">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="buildingnum2" name="buildingnum" style="width:90%" data-options="label:'楼房编号:',required:true">
+				</div>
+				<div style="margin-bottom:10px">
+					<input  class="easyui-textbox" id="house_floor2" name="house_floor" style="width:90%" data-options="label:'房屋楼层:',required:true" >
+				</div>							
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_type2" name="house_type" style="width:90%" data-options="label:'房屋户型:',required:true">
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_orientation2" name="house_orientation" style="width:90%" data-options="label:'房屋朝向:',required:true" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_num2" name="house_num" style="width:90%" data-options="label:'房屋门牌号:',required:true" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="house_area2" name="house_area" style="width:90%" data-options="label:'建筑面积m²:',required:true" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="house_age2" name="house_age" style="width:90%" data-options="label:'房屋年代:',required:true" >
+				</div>
+				<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="house_decoration2" name="house_decoration" style="width:90%" data-options="label:'房屋装修:',required:true" >
+				</div>
+					<div style="margin-bottom:10px">
+					房屋优势1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="easyui-textbox" id="house_advantages-1" name="house_advantages-1" style="width:16%" data-options="required:true,prompt:'最多5字',validType:'length[1,5]'" >
+					房屋优势2:<input class="easyui-textbox" id="house_advantages-2" name="house_advantages-2" style="width:16%" data-options="prompt:'最多5字',validType:'length[0,5]'" >
+					房屋优势3:<input class="easyui-textbox" id="house_advantages-3" name="house_advantages-3" style="width:16%" data-options="prompt:'最多5字',validType:'length[0,5]'" >
+				</div>
+					<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="price2" name="price" style="width:90%" data-options="label:'租售价格',required:true" >
+				</div>
+					<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="phone2" name="phone" style="width:90%" data-options="label:'联系电话',required:true" >
+				</div>
+ 				<div style="margin-bottom:10px">
+					<input class="easyui-numberbox" id="sort2" name="sort2" style="width:90%" data-options="label:'排序号',required:true" >
+				</div> 
+					<div style="margin-bottom:10px">
+					<select class="easyui-combobox"id="status2" name="status2" label="选择消息状态"required="true" style="width:90%"><option value="1">正常</option><option value="0">失效</option></select>
+				</div>
+					<input type="hidden" id="docid2" name="docid2" >
+		</form>
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitEdit()" style="width:80px">更新</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var editIndex = undefined;
+		var app=false;
+		function onClickCell(index, field){			
+			var row=$('#dg').datagrid('getSelected');
+			$('#dlg2').dialog('open');		
+			$("#type2").combobox({ disabled: true});			
+			$("#type2").combobox('setValue',row.type);
+			$("#districtname2").textbox('setValue',row.districtname);	
+			$("#title2").textbox('setValue',row.title);	
+			$("#buildingname2").textbox('setValue',row.buildingname);					
+			$("#buildingnum2").textbox('setValue',row.buildingnum);
+			$("#house_floor2").textbox('setValue',row.house_floor);
+			$("#house_type2").textbox('setValue',row.house_type);
+			$("#house_orientation2").textbox('setValue',row.house_orientation);		
+			$("#house_area2").numberbox('setValue',row.house_area);
+			$("#house_age2").numberbox('setValue',row.house_age);
+			$("#house_num2").textbox('setValue',row.house_num);
+			$("#house_decoration2").textbox('setValue',row.house_decoration);
+			var a=row.house_advantages;
+			var ad=a.split("*");
+			$("#house_advantages-1").textbox('setValue',ad[0]);
+			$("#house_advantages-2").textbox('setValue',ad[1]);
+			$("#house_advantages-3").textbox('setValue',ad[2]);		
+			$("#price2").numberbox('setValue',row.price);
+			$("#phone2").numberbox('setValue',row.phone);
+			$("#sort2").numberbox('setValue',row.sort);
+			$("#status2").combobox('setValue',row.status);		
+			$("#docid2").val(row.docid);
+		}
+		function getData2(){
+			var retData = {};
+			retData.type=$("#type2").combobox('getValue');
+			retData.districtname = $("#districtname2").textbox('getValue');	
+			retData.title = $("#title2").textbox('getValue');	
+			retData.buildingname = $("#buildingname2").textbox('getValue');	
+			retData.buildingnum = $("#buildingnum2").textbox('getValue');
+			retData.house_floor = $("#house_floor2").textbox('getValue');
+			retData.house_type = $("#house_type2").val();
+			retData.house_orientation = $("#house_orientation2").textbox('getValue');		
+			retData.house_area = $("#house_area2").numberbox('getValue');
+			retData.house_age = $("#house_age2").numberbox('getValue');
+			retData.house_num = $("#house_num2").textbox('getValue');
+			retData.house_decoration = $("#house_decoration2").textbox('getValue');
+			retData.house_advantages = $("#house_advantages-1").textbox('getValue')+"*"+$("#house_advantages-2").textbox('getValue')+"*"+$("#house_advantages-3").textbox('getValue');
+			retData.price = $("#price2").numberbox('getValue');
+			retData.phone = $("#phone2").numberbox('getValue');
+			retData.sort = $("#sort2").numberbox('getValue');
+			retData.status = $("#status2").combobox('getValue');	
+			retData.docid=$("#docid2").val();
+			retData.show=$("#selectRoom").combobox('getValue');
+			return retData;
+		}
+		function getSelect(){
+			var r=confirm("是否删除选中的商品？");
+			if (r==false){
+				 return false;
+			 }
+			var retData={};
+			var rows = $('#dg').datagrid('getSelected');
+			retData.docid = rows.docid;
+			retData.type = rows.type;
+			retData.show=$("#selectRoom").combobox('getValue');
+			data=$.toJSON(retData);
+			$('#dg').datagrid('clearSelections');
+			$.ajax({
+				url : '/ddxq/admin/fwzs/removeData',
+				data : data,
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				cache : false,
+				async: false,
+				success : function(data) {
+					if(data.success==true){
+						$('#dlg').dialog('close');
+						alert("删除成功");
+						$("#dg").datagrid('options').url = data.url;
+						$("#dg").datagrid('reload');					
+					}else{
+						alert("删除失败");
+					}				
+				},
+				error : function(xhr) {
+				}
+			});
+		}
+		function searchData(){
+			var type=$("#selectRoom").combobox('getValue');
+			if(type!="all"){
+				$("#dg").datagrid('options').url ='/ddxq/admin/fwzs/searchData?type='+type;
+		    	$("#dg").datagrid('reload');
+			}else{
+				$("#dg").datagrid('options').url ='/ddxq/admin/fwzs/getInfo';
+		    	$("#dg").datagrid('reload');
+				
+			}
+			
+		}
+	</script>
+	<script> 
+		function submitEdit(){
+			var retData=getData2();
+			var check=$("#ff2").form('enableValidation').form('validate');
+			if(check==false){
+				alert("请填写完整");
+				return false;
+			}
+			$.ajax({
+				url : '/ddxq/admin/fwzs/editInfo',
+				data : $.toJSON(retData),
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				cache : false,
+				async: false,
+				success : function(data) {
+					if(data.success==true){
+						$('#dlg2').dialog('close');
+						alert("更新成功");
+						$("#dg").datagrid('options').url = data.url;
+						$("#dg").datagrid('reload');					
+					}else{
+						alert("更新失败");
+					}				
+				},
+				error : function(xhr) {
+				}
+			});
+		}				
+	</script>
+
+</body>
+</html>

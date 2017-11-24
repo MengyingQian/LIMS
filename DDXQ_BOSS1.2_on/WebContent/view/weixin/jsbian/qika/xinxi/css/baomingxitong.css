@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.banner img{width: 100%;height: auto;}
+.main{margin-top: -10px;padding: 20px 0 0 10px;}
+.liaojie{color: #5FC2C9;}
+.liaojie i{color: red;}
+.liaojie p{text-indent: 2em;padding-bottom: 0.1rem;}
+.ui-form-item {padding: 0;}
+.ui-form-item input,.ui-form-item select, .ui-form-item textarea {width: 70%;-webkit-box-sizing: border-box;box-sizing: border-box;
+    -webkit-appearance: none;border: 1px solid #5fc2c9;border-radius:5px;background: 0 0;padding: 0 10px;height: 30px;}
+#tankuang2 .ui-form-item input,#tankuang2 .ui-form-item select,#tankuang2 .ui-form-item textarea{width: 60%;-webkit-box-sizing: border-box;box-sizing: border-box;
+    -webkit-appearance: none;border: 1px solid #5fc2c9;border-radius:5px;background: 0 0;padding: 0 10px;margin-left: 15px;}
+.fujia img{width: 100%;}
+.fujia-neirong{width: 100%;text-indent: 2em;}
+.button{width: 96%;height: 40px;border: 0;background: #5FC2C9;margin: 20px auto 30px;border-radius: 5px;color: #fff; padding: 0 2%;}
+.shipin{height: 60px;}
+.xingming{float: left;width: 25%;}
+.huoqu{position: absolute;top: 7px;right: 5%;background: #5FC2C9;border-radius:0 5px 5px 0;height: 30px;width: 30%;
+	text-align: center;color: #fff;line-height: 30px;font-size: 14px;}
+.xiugai,.xiugai2{width: 40%; float: left;background: #5fc2c9;border: 0px solid #5fc2c9;outline: none; border-radius: 5px;height: 40px;color: #fff;}
+.xiugai2{float: right;}
+.zhezhao{width: 100%;height: 100%;position: fixed;top: 0;left: 0;background: #000;opacity: 0.1;}
+.touxiang-R {width: 0.8rem;height: 0.8rem;border: 0;position: relative;margin-left: 30%;}
+.touxiang-R-B img {position: absolute; width: 0.9rem;height: 0.9rem;border-radius: 5px;}
+.uploader_input {position: absolute;z-index: 1;top: 0;left: 0;opacity: 0;width: 100%;height: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+.zhezhao{width: 100%; height: 200%; background: #000;
+ 	 position: absolute; z-index: 3; top:0; opacity: 0.3;}
+.xingbie{width: 80%; height:0.8rem; margin: -10rem auto;left: 10%;background: #fff;
+ border-radius: 5px; position: absolute;z-index: 4;}
+ .xingbie-T{ margin: 0.1rem 0 0.1rem 5%; font-size: 0.2rem; font-weight: bold;}
+ .xingbie-B {width: 100%; height: 1.5rem; line-height: 1.5rem;
+ margin-right: 4px;}
+ .ta-3-C{width: 95%; margin: 0;line-height: 0.4rem;float: right;}
+ .ta-3-C input{float: right; margin: 0.1rem 8%;}
+ .ta-3-C span{margin: 0 3%;}
+ul, ol, dl { list-style: none; }
+ ._citys { width: 350px; display: inline-block; position: relative;margin: 0 4%;
+ 	text-align: center;}
+ ._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center;
+ 	 border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8;
+ 	 cursor: pointer; }
+ ._citys0 {background: #333333;}
+ ._citys0 li { display: inline-block; line-height: 34px; font-size: 15px; color: #888; width: 60px;
+ 	 text-align: center; cursor: pointer; }
+ .citySel { background-color: #56b4f8; color: #fff !important; }
+ ._citys1 {background: #333333; padding: 10px 0; }
+ ._citys1 a { width: 60px; height: 35px; display: inline-block; background-color: #f5f5f5; color: #666;
+ 	 margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer;
+ 	  font-size: 13px; overflow: hidden; }
