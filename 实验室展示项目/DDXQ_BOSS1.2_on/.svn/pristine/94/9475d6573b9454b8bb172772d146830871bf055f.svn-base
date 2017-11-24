@@ -1,0 +1,35 @@
+.ui-tab {margin: 46px 0 0;}
+.detail-header {height: auto;padding: 0;background: #fff;border-bottom: 1px solid #e0e0e0;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.tupian{margin: 0 15px 0 0;padding: 15px 5px 10px 20px ;display: block;}
+.tupian img {width: 100px;height: 100px; border-radius: 8px;}
+.ui-tab-nav{position: fixed;z-index: 2;top: 43px;}
+.ui-nowrap {font-size: 16px;width: 50%;display: inline;}
+.geren{position: relative;}
+.dafen{position: absolute;top: 10px;right: 30px;font-size: 14px;color: #5fc2c9;z-index: 200;}
+.item-title-row i{margin: -2px -8px 0 0 ;}
+.dafen,.item-title-row i{color: #5fc2c9;}
+.label {padding: 0 18px;height: 50px;margin: -4px 0;width: auto;
+	line-height: 50px;font-size: 26px;color:#000;
+	vertical-align: middle;-webkit-transform: scale(0.5);-webkit-transform-origin: 0 14px;}
+.item-text {
+    font-size: 14px;
+    color: #999;
+    margin: -10px auto 0;
+    line-height: 20px;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    padding: 0 10px 0 0;
+}
+.ui-list-info{padding-top: 15px;}
+.detail-header .ui-list-info .more{margin: 2px 0;}
+.ui-list-info p{font-size: 12px;}
+.ui-tab-nav li.current {
+    color: #5fc2c9;
+    border-bottom: 2px #5fc2c9 solid;
+}

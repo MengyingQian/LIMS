@@ -1,0 +1,13 @@
+input{border:0;outline: none;}
+body{padding-top: 40px;}
+.fenxiang{position: fixed;top: 12px;right: 15px;color: #5FC2C9;border: none;z-index: 100;font-size: 18px;}
+.text input{text-indent: 1em;width: 100%;background: #f8f8f8;margin: 0 auto ;height:50px;}
+.text textarea{width: 100%; background: #fff; height: 260px;border: none;text-indent: 2em;
+	padding: 10px 4%;line-height:25px;}
+.detail-header .ui-list-img img {width: 100px;height: 100px;border-radius: 8px;}
+.more span{margin: 0 3px;color: #FE9A58;}
+.zhu{padding:0 2.1%; color: #777; border:1px solid #dedede; border-radius:5px; width:91%; margin:0.4rem auto 0;}
+.biaoti{font-size: 16px;}
+.detail-header{height: auto;padding: 20px 0 10px;}
+
+

@@ -1,0 +1,13 @@
+/* CSS Document */
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+.west a:link{ color:#000; text-decoration:none;}
+.west a:hover{ color:#000; text-decoration:none;}
+.west a:visited{ color:#000; text-decoration:none;}
+.west a:actived{ color:#000; text-decoration:none;}
+.headdiv{min-height:50px; background-color:#D9E7F8; border:#8DB2E3 1px solid;}
+.title_td{ background-color:#F3FAFF;line-height:24px; text-align:right;}
+.content_td{ background-color:#F3F3FA;line-height:24px;}

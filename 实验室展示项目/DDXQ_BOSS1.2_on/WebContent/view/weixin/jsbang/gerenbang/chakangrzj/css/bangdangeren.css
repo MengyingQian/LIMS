@@ -1,0 +1,29 @@
+ html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
+a{ text-decoration:underline; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+*{padding: 0; margin: 0; font-size: 0.7rem; font-family: "黑体"; list-style-type: none;  color: #333;}
+ body{background: #f0f0f0; width: 100%; font-family: 黑体;font-family:Helvetica;/*移动端默认字体*/}  
+ .head img{width: 100%; height: 11.175rem; margin: 0 auto;}
+ .weui_article h3 {color: #333; font-weight: 400; margin-bottom: 5px;}
+.weui_article {font-size: 15px; margin-top: 0.7rem;}
+.weui_article section {  padding-top:0.7rem ; background: #fff; margin-bottom: 0.5rem;
+ padding-left: 8px; padding-right: 8px;}
+p{ color: #333; margin-bottom:28px; font-size: 0.75rem; text-indent：50px; width: 100%;
+	 line-height: 1.1rem; text-indent: 2em;}
+.yuedu{width: 100%; height: 1rem; margin: 0.8rem auto;}
+.yuedu-L{float: left;}
+.yuedu-R{float: right;}
+.yuedu-R-L{float: left; margin: 1px 5px 0 0;}
+.yuedu-R-R{float: left;}
+.X{border: #f0f0f0 1px solid; margin-bottom: 12px;}
+.X2{border: #fff 1px solid; margin-bottom: 12px;}
+.shoujihao{width:  95.8%; margin: 0.7rem auto 0 auto; height: 1rem;}
+.shoujihao-L{float: left; margin-left: 2.06%; font-size:0.6rem;}
+.shoujihao-R{ float: right;
+    text-align: right; margin-right: 2.06%; font-size: 0.6rem;}
+.shoujihao-L span{padding: 0 8px;}
+.jishuzhichi{text-align: center; height: 1.1rem; line-height: 1.1rem; width: 100%;
+  font-size: 0.5rem; clear: none; margin: 1.2rem 0 25px;}
+
+.gengduo{width: 95.8%;margin: 0 auto; border:1px solid #f0f0f0; border-radius:6px; text-align:center;}
+.button{width: 80%;padding:0 5%; background:#fff;border:0; outline: none; color: #000; height:2rem; line-height:2rem;font-size:0.7rem;}
+.jiazai{width: 100%; color: #000; margin: 0.5rem 0 0;}

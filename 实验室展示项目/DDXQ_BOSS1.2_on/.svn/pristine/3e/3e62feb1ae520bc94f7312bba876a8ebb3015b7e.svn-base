@@ -1,0 +1,29 @@
+body{background: #f2f2f2;}
+input{border:0;outline: none;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.text{width: 100%;background: #f2f2f2;margin: 0 auto;height:50px;line-height:50px;text-indent: 1em;}
+.text textarea{width: 92%; background: #fff; height: 80px;border: none;
+	padding: 10px 4%;line-height:25px;}
+.banner img{width: 100%;margin: 40px auto 0;}
+.ui-footer-btn{background: #f2f2f2;text-align: center;color: #b1dae0;font-weight: 500;}
+.ui-btn-wrap{padding: 0;margin: 8px auto;height: 40px;width: 94%;border: 1px solid #B1DAE0;
+    border-radius: 5px;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {
+    width: 50%;
+    height: 40px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#fff),to(#fafafa));
+    vertical-align: top;
+    color: #5FC2C9;
+    -webkit-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+   }
+.ui-dialog-cnt{margin: 70px auto;width: 80%;}
+.ui-dialog-cnt textarea{width: 94%;height: 300px;padding:5px 3%;background: #fff;border: none;outline: none;
+	border-radius: 5px;}

@@ -1,0 +1,18 @@
+*{margin: 0; padding: 0; color: #333;}
+body{font-family: 黑体; background: #fff; width: 100%; font-size: 0.7rem;}
+html {font-size: 62.5%;}
+.hd{width: 100%;background: #5fc2c9; color: #fff;text-align: center;height: 1.35rem;
+ line-height: 1.35rem;}
+.body-limian{width: 94%;margin: 45px auto 0; padding: 10px 0 0;}
+.dangqian{font-size: 0.8rem;margin:0 auto 0.5rem; padding: 0 0 0.3rem;line-height: 1.2rem;width: 92%;
+ border-bottom: 1px solid #5fc2c9;}
+.conten{width: 74%; margin: 0 auto;text-indent: 2em; padding: 0.7rem;border: 1px dashed green;color: green;}
+.diyiti{width: 100%; height: auto;}
+.foont{position: fixed;left: 0;bottom:0;width: 100%; background: #5fc2c9; padding:6px 0;font-size: 16px;}
+.foont-L{float: left;text-align: center;color: #fff;width: 33%;border-right: 1px solid #fff;}
+.foont-L:last-child{border-right: none;}
+.foont p{padding: 0;margin: -5px 0 0;color: #fff;text-align: center;}
+.foont span{color: #fff;}
+.diyiti a .card-content-inner {padding: 0 5%;border: 1px solid #5fc2c9;border-radius: 5px;width: 80%;margin: 0 auto 0.7rem;
+	background-size: 1rem auto;}
+.diyiti a .card-content-inner:active{background-size: 1rem auto;color: #fff;}

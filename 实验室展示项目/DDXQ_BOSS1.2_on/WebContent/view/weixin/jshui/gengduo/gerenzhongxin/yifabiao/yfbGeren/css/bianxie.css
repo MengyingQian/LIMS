@@ -1,0 +1,15 @@
+.ui-panel{margin: 40px auto 0;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {background-color: #b1dae0;color: #fff;background-image:none;}
+.ui-header-positive, .ui-footer-positive {color: #fff;}
+.detail-header {height: 180px;padding-top:60px;}
+.comment-list-mul .comment-text {-webkit-line-clamp: 3000;}
+.bianxie{width: 100%; height: 300px;text-indent:2em;border: none;line-height: 24px;}
+.fenxiang {position: fixed;top: 13px;right: 15px;color: #5FC2C9;border: none;z-index: 100;font-size: 17px;}
+.zhu {
+    padding: 0 2.1%;
+    color: #777;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    width: 91%;
+    margin: 0.4rem auto 0;
+}

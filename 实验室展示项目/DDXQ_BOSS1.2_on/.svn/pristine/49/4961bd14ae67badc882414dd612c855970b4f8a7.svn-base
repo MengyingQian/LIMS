@@ -1,0 +1,84 @@
+ html {font-size: 62.5%;}
+a{ text-decoration:none; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+*{padding: 0; margin: 0; font-size: 0.7rem; font-family: "ºÚÌå"; list-style-type: none;  color: #333;}
+ body{background: #f0f0f0; width: 100%; font-family: ºÚÌå; font-size: 0.7rem;
+	font-family:Helvetica;}  
+ input{ border: 0; outline: none;}
+ .jianjie{width: 91%;padding: 0.5rem 4.5% 1rem 4.5%;  margin: 0 auto;background: #fff; height: 7rem;}
+ .jianjie-L img{ height: 5.3rem;width: 5.3rem; float: left; margin: 1rem 7.6% 0.375rem 3.6%;}
+ .jianjie-R textarea{float: left; margin: 0.5rem 0 0 0; font-size: 0.6rem; line-height: 0.85rem;border: 0;
+  text-indent: 2em;width: 50%;height: 6.5rem; -webkit-appearance: none; background: #FFF; outline: none;}
+ .zhu{width: 92%; margin: 0.5rem auto; color: #999; font-size: 0.45rem;}
+ .shoujihao{width: 94%; height: 2.1rem; margin: 0 auto 0 auto;
+  border-bottom: #dcdcdc 1px solid;}
+.shoujihao-L{float: left; margin-left: 4px;}
+ .shoujihao-L img{width: 40px;height: 40px;}
+  .shoujihao-R {width: 65%; float: right; line-height: 1.5rem;
+   margin-right: 4px; text-align: right;}
+ .shoujihao-R input{width: 22%; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.6rem; text-align: center; margin-right: 4px;}
+ .shoujihao:last-child{border-bottom:0;}
+.body-limiam{width: 100%; margin: 0 auto; background: #fff;}
+.dangqian{width: 95.8%; height: 2.1rem; margin: 0.9rem auto 0 auto;}
+.dangqian-L{width: 45%; float: left; margin-left: 8px;
+ 	line-height: 1.5rem;}
+.dangqian-R{width: 45%; float: right; line-height: 1.5rem;
+   margin-right: 4px; text-align: right;}
+ .dangqian-L input{width: 25%; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.6rem; text-align: center; margin-right: 4px; background: #F0F0F0;}
+ .dangqian-R input{width: 40%; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.6rem; text-align: center; margin-right: 4px; background: #F0F0F0;}
+.txnr{width: 97%;
+	margin-top: 14px;
+	background: #FFFFFF;
+	padding-top: 14px;
+	padding-left: 3%;
+	font-size: 15px;
+}
+#xxjs{
+	width: 95%;
+	height: 171.5px;
+	border: none; outline: none;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	text-indent: 2em;
+	line-height: 30px;
+	padding-top: 10px;
+}
+.ggg{
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 19px;
+	text-align:center;
+}
+.ggg input{
+	text-align:center;
+	width: 90%;
+	height: 2.2rem;
+	background: #15d616;
+	line-height: 2.2rem;
+	 color: #FFFFFF;
+	 font-size: 15px;
+	 border: none;
+	 outline: none;
+	 border-radius: 10px;
+	 font-size: 0.75rem ;
+}
+.tan{display: none;}
+.tmc{
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	position: fixed;
+	background: #000000;
+	opacity: 0.7;
+}
+.tankuang{width: 80%; height: 8rem; background: #fff; margin: 8rem 10% 0 10%;
+	position: fixed; z-index: 20;}
+.tankuang-T{width: 80%; padding: 0.8rem 5% 0.5rem  5%; margin: 0 auto; border-bottom:#999 1px solid ;
+ font-size: 0.7rem; line-height: 0.85rem; color: #000;}
+.tankuang-B input{width: 80%; border: #000 2px solid; margin: 0.4rem 10%;
+	text-align: center; font-size: 0.7rem; line-height: 1.5rem;}

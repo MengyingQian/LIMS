@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="/view/pub/basic/jsp/include.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="zh-cN">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/css/demo.css">
+	<script type="text/javascript"src="/view/pub/basic/js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/js/jquery.json.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript">	
+		$(function(){
+			
+		});
+		function change(data){
+			$.ajax({
+				url : '/ddxq/admin/userman/change',
+				data : $.toJSON(data),
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				cache : false,
+				async: false,
+				success : function(data) {
+					if(data.success==true){
+						$("#status").textbox('setValue',data.status);				
+					}else{
+						alert("操作失败");
+					}				
+				},
+				error : function(xhr) {
+				}
+			});		
+		}
+</script>
+</head>
+<body style="font-family: verdana, helvetica, arial, sans-serif;
+    font-size: 0px;
+    padding: 0px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-left: 2px;">
+<div style="padding:10% 20%;"> 
+	 <c:if test="${type eq 1 }">
+	 		<div class="easyui-panel" title="设置小区超市状态" style="width:100%;max-width:1000px;padding:20px 20px;">
+	 </c:if> 
+	 <c:if test="${type eq 2 }">
+	 		<div class="easyui-panel" title="设置小区直播状态" style="width:100%;max-width:1000px;padding:20px 20px;">
+	 </c:if> 
+	 <c:if test="${type eq 3 }">
+	 		<div class="easyui-panel" title="设置快递代收状态" style="width:100%;max-width:1000px;padding:20px 20px;">
+	 </c:if> 
+	  <c:if test="${type eq 4 }">
+	 		<div class="easyui-panel" title="设置房屋租售状态" style="width:100%;max-width:1000px;padding:20px 20px;">
+	 </c:if> 	 
+		<input type="hidden" id="districtId" name="districtId"  value="${districtId}">
+		<input type="hidden" id="type" name="type"  value="${type}">
+		<div style="margin-bottom:5px">
+			<input disabled="disabled" id="status" name="status"class="easyui-textbox" label="当前状态" labelPosition="top" style="width:100%;height:52px" value="${status}">
+		</div>
+		<div>
+			<div onclick="open1();" class="easyui-linkbutton"  style="width:100%;height:32px">开启</div>
+		</div>
+		<div style="margin-bottom:5px">		
+			<div onclick="close1();" class="easyui-linkbutton"  style="width:100%;height:32px">关闭</div>
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript">	
+function open1(){
+	var type =  $("#type").val();
+	if (type == "1"){
+		var r=confirm("开启前请确保小区骑手、商家的手机号码以及openId均正确，否则可能导致超市快送异常。已经确认？");
+		if (r==false){
+			 return false;
+		 }
+	}	
+	if (type == "2"){
+		var r=confirm("开启前请确保小区直播已准备妥当，已经确认？");
+		if (r==false){
+			 return false;
+		 }
+	}
+	if (type == "3"){
+		var r=confirm("开启前请确保小区快递代收服务准备妥当，已经确认？");
+		if (r==false){
+			 return false;
+		 }
+	}
+	if (type == "4"){
+		var r=confirm("开启前请确保房屋租售服务准备妥当，已经确认？");
+		if (r==false){
+			 return false;
+		 }
+	}
+	var data = {};
+	data.districtId = $("#districtId").val();
+	data.type = type;
+	data.status = 1;
+	change(data);
+}
+function close1(){
+	var data = {};
+	data.districtId = $("#districtId").val();
+	data.type = $("#type").val();
+	data.status = 0;
+	change(data);
+}
+
+</script>
+</html>

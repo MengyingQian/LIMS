@@ -1,0 +1,54 @@
+@charset "utf-8";
+body{
+	font: 0.14rem/200%  黑体/* 这段代码解析后为移动端定义字体,14号字1.8倍行距 */;
+ 	-webkit-text-size-adjust: 100%!important;/*ios使用-webkit-text-size-adjust禁止调整字体大小*/
+ 	}
+html, body {
+	min-height: 100%;
+	background: #FFFFFF;
+	height: 100%;
+	-webkit-text-size-adjust: none;/*解决谷歌浏览器对字体的修改,不让谷歌浏览器对小于12号字的文字做出修改*/
+	}
+html{
+ 	-webkit-user-select:none; /*移动端禁止选中内容*/
+ 	-webkit-touch-callout: none;
+	@media (min-device-width:320px) and (max-width:509px), (max-device-width:480px) and (orientation:portrait),
+ screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (-o-device-pixel-ratio : 1.5) ,only screen and (min-device-pixel-ratio : 1.5)
+ /*这段话是用来识别设备像素比小于1.5的，具体就是应用在手机端，有了这段代码，手机端的CSS样式可以和PAD、电脑等大屏幕设备区别开。*/
+	}
+img{ 
+	max-width: 100%;
+	border:none;
+	vertical-align: top;
+	-ms-interpolation-mode: bicubic; 
+	/*这段话的用途是解决图片缩放的失真问题。在手机端是非常重要的，不可缺少*/
+	}	
+div {
+	text-align:justify; text-justify:inter-ideograph;/*文字两端对齐，不会出现标点符号把文字拖入下一行的情况。在手机端会更加美观*/
+	}
+body,div,span,h1,h2,h3,h4,h5,h6,ul,ol,pre,form,input,textarea,th,td,select,p,dt,dl,dd,li,figure, footer, header, menu, nav,aside,article,section{
+	margin:0; 
+	padding:0; 
+	font-weight: normal;
+	text-indent: 0;
+	}  
+a,button,input,textarea,select{ 
+	 /*ios android去除自带阴影的样式*/
+	background: none;
+	 -webkit-tap-highlight-color:rgba(0,0,0,0);
+	 outline:none;
+	 border: 0;
+	 -webkit-appearance:none;/*屏蔽阴影*/
+	   } 
+li{
+	list-style:none;
+	vertical-align:top;
+	}
+ a{
+ 	text-decoration:none;
+ 	color: #555555;
+ 	} 
+a, img {
+    /* 禁止长按链接与图片弹出菜单 */
+    -webkit-touch-callout: none; 
+    }

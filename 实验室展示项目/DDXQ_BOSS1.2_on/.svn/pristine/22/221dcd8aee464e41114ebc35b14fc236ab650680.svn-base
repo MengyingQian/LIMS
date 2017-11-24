@@ -1,0 +1,9 @@
+*{margin: 0; padding: 0; color: #333;}
+body{font-family: 黑体; background: #fff; width: 100%; font-size: 0.7rem; padding-top: 0.7rem;}
+html {font-size: 62.5%;}
+a{text-decoration: underline; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+.hd{width: 100%; line-height: 1.4rem; text-align: center;}
+.bh{width: 15%; float: left;}
+.mc{width: 25%; float: left;}
+.huozan{width: 25%; float: left;}
+.jingcai{width: 35%; float: left;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}

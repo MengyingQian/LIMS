@@ -1,0 +1,336 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="/view/pub/basic/jsp/include.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="zh-cN">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css"href="/view/pub/basic/css/demo.css">
+	<script type="text/javascript"src="/view/pub/basic/js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/js/jquery.json.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript"src="/view/pub/basic/easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript">	
+		$(function(){
+			$('#dlg').dialog('close');	
+			$('#dlg2').dialog('close');	
+			$("#districtId").numberbox('setValue',$("#dist").val());
+			$("#districtId").numberbox({ disabled: true});
+			$("#districtIdFrom").numberbox('setValue',$("#dist").val());
+			$("#districtIdFrom").numberbox({ disabled: true});
+		})
+</script>
+</head>
+<body style="font-family: verdana, helvetica, arial, sans-serif;
+    font-size: 0px;
+    padding: 0px;
+     margin-top: 2px;
+    margin-right: 2px;
+    margin-left: 2px;">
+	<table id="dg" class="easyui-datagrid" title="管理一呼百应信息"  fit="true"
+			data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				url: '',
+				method: 'get',
+				onDblClickCell: onClickCell
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'districtId',width:60">小区编号</th>
+				<th data-options="field:'servs',width:60">服务类型</th>
+				<th data-options="field:'caption',width:80,align:'right'">标题</th>
+				<th data-options="field:'phone',width:80,align:'right'">电话</th>
+				<th data-options="field:'seller',width:80,align:'right'">服务方</th>
+				<th data-options="field:'publisher',width:80,align:'right'">发布者</th>
+				<th data-options="field:'address',width:80">地址</th>
+				<th data-options="field:'link',width:60,align:'center'">链接</th>
+				<th data-options="field:'description',width:80,align:'center'">描述</th>
+				<th data-options="field:'created',width:150,align:'center'">创建时间</th>
+				<th data-options="field:'updated',width:150,align:'center'">更新时间</th>
+				<th data-options="field:'truecreated',width:0,hidden:true,align:'center'"></th>
+				<th data-options="field:'trueupdated',width:0,hidden:true,align:'center'"></th>
+				<th data-options="field:'docid',width:0,hidden:true,align:'center'"></th>
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" style="height:auto">
+		小区编号: <input type="text" id="districtIdFrom" class="easyui-numberbox" style="width:50px">		
+		<select class="easyui-combobox"id="selectservs" label="选择服务类型" style="width:30%">
+			<option value="gyrx">公益热线</option><option value="tsjb">投诉举报</option><option value="xqjg">小区机构</option>
+			<option value="songshui">送水</option><option value="waimai">外卖</option><option value="songmi">送米</option><option value="songcai">送菜</option><option value="songnai">送鲜奶</option>
+			<option value="bjqh">保洁清护</option><option value="bmay">保姆阿姨</option><option value="wxst">维修疏通</option><option value="lrhl">老人护理</option>
+			<option value="kd">快递</option><option value="yc">约车</option><option value="by">搬运</option><option value="mj">美甲</option><option value="am">按摩</option>
+			<option value="gyby">改衣补衣</option><option value="xyyy">洗衣熨衣</option><option value="sxbx">刷鞋补鞋</option>
+			<option value="jj">家教</option><option value="tcb">特长班</option><option value="zybj">中医保健</option><option value="sqys">社区医生</option>
+		</select>
+		
+		<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchData()">查询服务信息</a>
+		<br/>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">添加服务</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="getSelect()">删除选中行</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"">双击修改</a>
+	</div>
+	
+	<script type="text/javascript">
+		var editIndex = undefined;
+		var app=false;
+		function onClickCell(index, field){			
+			var row=$('#dg').datagrid('getSelected');
+			$('#dlg2').dialog('open');	
+			
+			$("#districtId2").numberbox({ disabled: true});
+			$("#districtId2").numberbox('setValue',row.districtId);
+			$("#servs2").combobox({ disabled: true});
+			$("#servs2").combobox('setValue',$("#selectservs").combobox('getValue'));		
+			$("#phone2").numberbox('setValue',row.phone);
+			$("#address2").textbox('setValue',row.address);
+			$("#publisher2").textbox('setValue',row.publisher);
+			$("#seller2").textbox('setValue',row.seller);
+			$("#link2").textbox('setValue',row.link);
+			$("#caption2").textbox('setValue',row.caption);
+			$("#description2").textbox('setValue',row.description);
+			$("#docid").textbox('setValue',row.docid);	
+		}
+		function append(){
+			$('#dlg').dialog('open');
+			$("#districtId").numberbox('setValue',$("#dist").val());
+			$("#districtId").numberbox({ disabled: true});
+		
+		}
+		function getSelect(){
+			var r=confirm("是否删除选中的信息？");
+			if (r==false){
+				 return false;
+			 }
+			var retData={};
+			var rows = $('#dg').datagrid('getSelections');
+			for(var i=0; i<rows.length; i++){
+				var row = rows[i];	
+				var da={};
+				da.districtId=row.districtId;
+				da.servs=$("#selectservs").combobox('getValue');	
+				da.docid=row.docid;
+				retData[i]=da;			
+			}
+			$('#dg').datagrid('clearSelections');
+			data=$.toJSON(retData);
+			
+			$.ajax({
+				url : '/ddxq/admin/servs/yhby/removeData',
+				data : data,
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				cache : false,
+				async: false,
+				success : function(data) {
+					if(data.success==true){
+						$('#dlg').dialog('close');
+						alert("删除成功");
+						$("#dg").datagrid('options').url = data.url;
+						$("#dg").datagrid('reload');					
+					}else{
+						alert("删除失败");
+					}				
+				},
+				error : function(xhr) {
+				}
+			});
+		}
+	</script>
+	<div id="dlg" class="easyui-dialog" title="添加服务信息" data-options="iconCls:'icon-save'" style="width:450px;height: 350px;padding:5px">	
+		<form id="ff" method="post">
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox"id="districtId" name="districtId" style="width:90%" data-options="label:'小区编号:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<select class="easyui-combobox" id="servs"name="servs"required="true" label="选择服务类型" style="width:90%"><option value="gyrx">公益热线</option><option value="tsjb">投诉举报</option><option value="xqjg">小区机构</option>
+					<option value="songshui">送水</option><option value="waimai">外卖</option><option value="songmi">送米</option><option value="songcai">送菜</option><option value="songnai">送鲜奶</option>
+					<option value="bjqh">保洁清护</option><option value="bmay">保姆阿姨</option><option value="wxst">维修疏通</option><option value="lrhl">老人护理</option>
+					<option value="kd">快递</option><option value="yc">约车</option><option value="by">搬运</option><option value="mj">美甲</option><option value="am">按摩</option>
+					<option value="gyby">改衣补衣</option><option value="xyyy">洗衣熨衣</option><option value="sxbx">刷鞋补鞋</option>
+					<option value="jj">家教</option><option value="tcb">特长班</option><option value="zybj">中医保健</option><option value="sqys">社区医生</option></select>
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="caption"name="caption" style="width:90%" data-options="label:'标题',required:true">
+			</div>			
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox" id="phone"name="phone" style="width:90%" data-options="label:'电话:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="publisher"name="publisher" style="width:90%" data-options="label:'发布者:'">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="seller"name="seller" style="width:90%" data-options="label:'服务方:'">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox" id="score"name="score" style="width:90%" data-options="label:'排序号:'">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="address" name="address" style="width:90%" data-options="label:'地址:'">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="link" name="link" style="width:90%" data-options="label:'超链接:'">
+			</div>
+			<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="description" name="description" style="width:90%;height:140px" data-options="label:'服务描述:',multiline:true,prompt:'弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内'">
+		    </div>		
+		</form>
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">添加</a>
+			<!-- <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">清空</a> -->
+			
+		</div>
+		</div>
+	<script> 
+		function getData(){
+			var retData = {};
+			retData.districtId=$("#districtId").numberbox('getValue');			
+			retData.servs=$("#servs").combobox('getValue');			
+			retData.phone=$("#phone").numberbox('getValue');
+			retData.score=$("#score").numberbox('getValue');
+			retData.publisher=$("#publisher").textbox('getValue');
+			retData.seller=$("#seller").textbox('getValue');
+			retData.address=$("#address").textbox('getValue');			
+			retData.link=$("#link").textbox('getValue');			
+			retData.caption=$("#caption").textbox('getValue');
+			retData.description=$("#description").textbox('getValue');
+			return retData;
+		}
+		function submitForm(){
+			var retData=getData();
+			$.ajax({
+				url : '/ddxq/admin/servs/yhby/insertInfo',
+				data : $.toJSON(retData),
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				cache : false,
+				async: false,
+				success : function(data) {
+					if(data.success==true){
+						$('#dlg').dialog('close');
+						alert("插入成功");
+						clearForm();
+						$("#districtIdFrom").numberbox('setValue',data.districtId);
+						$("#selectservs").combobox('setValue',data.servs);
+						$("#dg").datagrid('options').url = data.url;
+						$("#dg").datagrid('reload');					
+					}else{
+						alert("插入失败");
+					}				
+				},
+				error : function(xhr) {
+				}
+			});
+
+		}		
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+		function searchData(){
+			var districtId=$("#districtIdFrom").numberbox('getValue');
+			var servs=$("#selectservs").combobox('getValue');
+			if(!districtId.length){
+				alert("请输入小区编号");
+				return false;
+			}
+			$("#dg").datagrid('options').url ='/ddxq/admin/servs/yhby/searchData?districtIdFrom='+districtId+"&servs="+servs;
+	    	$("#dg").datagrid('reload');
+			
+		}
+		
+	</script>
+		<div id="dlg2" class="easyui-dialog" title="修改服务信息" data-options="iconCls:'icon-save'" style="width:450px;height: 350px;padding:5px">	
+		
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox"id="districtId2" name="districtId" style="width:90%" data-options="label:'小区编号:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<select class="easyui-combobox" id="servs2"name="servs" required="true"label="选择服务类型" style="width:90%"><option value="gyrx">公益热线</option><option value="tsjb">投诉举报</option><option value="xqjg">小区机构</option>
+					<option value="songshui">送水</option><option value="waimai">外卖</option><option value="songmi">送米</option><option value="songcai">送菜</option><option value="songnai">送鲜奶</option>
+					<option value="bjqh">保洁清护</option><option value="bmay">保姆阿姨</option><option value="wxst">维修疏通</option><option value="lrhl">老人护理</option>
+					<option value="kd">快递</option><option value="yc">约车</option><option value="by">搬运</option><option value="mj">美甲</option><option value="am">按摩</option>
+					<option value="gyby">改衣补衣</option><option value="xyyy">洗衣熨衣</option><option value="sxbx">刷鞋补鞋</option>
+					<option value="jj">家教</option><option value="tcb">特长班</option><option value="zybj">中医保健</option><option value="sqys">社区医生</option></select>
+			</div>
+		<form id="ff2" method="post">
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="caption2"name="caption" style="width:90%" data-options="label:'服务标题:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox" id="phone2"name="phone" style="width:90%" data-options="label:'电话:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="publisher2"name="publisher" style="width:90%" data-options="label:'发布者:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="seller2"name="seller" style="width:90%" data-options="label:'服务方:',required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="address2" name="address" style="width:90%" data-options="label:'地址:'">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" id="link2" name="link" style="width:90%" data-options="label:'超链接:'">
+			</div>
+			<div style="margin-bottom:10px">
+					<input class="easyui-textbox" id="description2" name="description" style="width:90%;height:140px" data-options="label:'服务描述:',multiline:true,prompt:'弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内'">
+		    </div>
+			<input class="easyui-textbox" type="hidden" id="redistime" name="redistime" value="" />
+			<input class="easyui-textbox" type="hidden" id="docid" name="docid" value="" />
+  			<input type="hidden" id="h2" name="newscenter" value="" />
+  			<input type="hidden" id="h3" name="title" value="" />
+			
+		</form>
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitEdit()" style="width:80px">更新</a>
+		</div>
+	</div>
+	<script> 
+	function getData2(){
+		var retData = {};
+		retData.districtId=$("#districtId2").numberbox('getValue');			
+		retData.servs=$("#servs2").combobox('getValue');			
+		retData.phone=$("#phone2").numberbox('getValue');	
+		retData.publisher=$("#publisher2").textbox('getValue');	
+		retData.seller=$("#seller2").textbox('getValue');	
+		retData.address=$("#address2").textbox('getValue');			
+		retData.link=$("#link2").textbox('getValue');			
+		retData.caption=$("#caption2").textbox('getValue');
+		retData.docid=$("#docid").textbox('getValue');
+		retData.description=$("#description2").textbox('getValue');
+		return retData;
+	}
+		function submitEdit(){
+			var retData=getData2();
+			$.ajax({
+				url : '/ddxq/admin/servs/yhby/editInfo',
+				data : $.toJSON(retData),
+				type : 'post',
+				dataType : 'json',
+				contentType : 'application/json',
+				cache : false,
+				async: false,
+				success : function(data) {
+					if(data.success==true){
+						$('#dlg2').dialog('close');
+						alert("更新成功");
+						$("#dg").datagrid('options').url = data.url;
+						$("#dg").datagrid('reload');					
+					}else{
+						alert("更新失败");
+					}				
+				},
+				error : function(xhr) {
+				}
+			});
+		}				
+	</script>
+	<input type="hidden" id="dist"name="dist" value="${districtId}">
+</body>
+</html>

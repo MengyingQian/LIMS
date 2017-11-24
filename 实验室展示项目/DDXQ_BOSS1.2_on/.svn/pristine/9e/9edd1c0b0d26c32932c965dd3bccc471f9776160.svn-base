@@ -1,0 +1,38 @@
+input{border:0;outline: none;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.dafen-ai,.dafen-cheng,.dafen-zhi,.dafen-yong,.dafen-he{width:100%;background: #fff;
+	margin-bottom:2px;height:64px;
+	line-height:64px;}
+.dafen-L img{float: left;width: 40%;color: #fe9a58;margin-left: 14px;margin-top: 6px;}
+.dafen-R{float: right;width:35%;color: #000;margin-right: 14px;text-align: right;}
+.dafen-R span{width: 25%; height: 30px; line-height: 30px;margin-top: 17px;padding: 0 2px;
+   text-align: center; margin-right: 4px;font-size: 20px;color: #000;}
+.fenxiang{position: fixed;top: 11px;right: 15px;color: #b1dae0;border: none;z-index: 100;}
+.detail-text p.s{height: 50px;background: url('../img/jiantou_03.png') no-repeat 97% 92%;
+  background-size:15px 10px;}
+.detail-text p.k{height: auto;background: url('../img/jiantou_06.png') no-repeat 97% 99%;
+  background-size:15px 10px;}
+ .paiming{width: 90%; padding: 10px 5% 20px;} 
+.paiming-L{float: left;}
+.pingjun{float: right;}
+.ui-footer-btn{background: #f2f2f2;text-align: center;color: #b1dae0;font-weight: 500;}
+.ui-btn-wrap{padding: 0;margin: 8px auto;height: 40px;width: 94%;border: 1px solid #B1DAE0;
+    border-radius: 5px;}
+.ui-btn, .ui-btn-lg, .ui-btn-s {
+    width: 50%;
+    height: 40px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#fff),to(#fafafa));
+    vertical-align: top;
+    color: #B1DAE0;
+    -webkit-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+   }
+.detail-header .ui-list-img img {width: 100px;height: 100px; border-radius: 8px;}
+.detail-header {height: auto;padding-bottom:10px;margin: 45px auto 0;}

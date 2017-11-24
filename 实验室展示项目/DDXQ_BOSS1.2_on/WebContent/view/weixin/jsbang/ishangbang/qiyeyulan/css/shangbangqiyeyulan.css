@@ -1,0 +1,46 @@
+ html {font-size: 62.5%;}
+a{ text-decoration:none; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+input{border: 0; outline: none;}
+*{padding: 0; margin: 0; font-size: 0.7rem; font-family: "黑体"; list-style-type: none;  color: #333;}
+ body{background: #f0f0f0; width: 100%; font-family: 黑体;margin-top: 45px;font-size: 0.7rem;
+	font-family:Helvetica;}  
+ .body-limiam{width: 95.8%; padding: 0 2.1%; background: #fff;}
+ .body-limiam2{width: 95.8%;padding: 0 2.1%; margin: 28px auto 0 auto; background: #fff;}
+  .touxiang{width: 95.8%; height: 4.25rem; margin: 0.6rem auto 0 auto; border-bottom: #f0f0f0 1px solid;}
+ .touxiang-L{float: left; margin-left: 4px; line-height:4.25rem ;}
+ .touxiang-R{float: right; width: 3.82rem; height: 3.82rem; border:0;
+ margin-top: 0.4rem; position: relative;}
+ .touxiang-R-B img{position: absolute;width: 3.4rem;height: 3.4rem; }
+ .shoujihao{width: 95.8%; height: 2.1rem; margin: 0 auto 0 auto; border-bottom: #f0f0f0 1px solid;}
+ .shoujihao-L{float: left; margin-top: 0.9rem; margin-left: 4px;}
+ .shoujihao-R {width: 65%; float: right; border: 0; outline: none; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.6rem; text-align: right; margin-right: 4px;}
+ .shoujihao-R-R {width: 65%; float: right; border: 0; outline: none; height: 1.5rem; line-height: 1.5rem;
+   margin-top: 0.6rem; text-align: right; margin-right: 4px;}
+ .ta-3-C{float: right; margin-right: 4px;}
+ .ta-3-R{float: right; margin-right: 15px;}
+ .shoujihao:last-child{border-bottom:0;} 
+ .qiyejianjie{width: 95.8%; height: 2.1rem; margin: 0 auto 0 auto;}
+ .qiyejianjie-L{float: left; margin-top: 0.9rem; margin-left: 4px;}
+ #xxnr{border: none; height: 8rem; width: 94%; text-indent: 30px; line-height: 25px;margin: 0 auto;
+ padding: 0 3% 0 3%; outline: none;background: #fff;}
+.fenxiang img {width: 40px;position: fixed;top: 0;right: 10px;}
+.ui-footer-btn{background: #f2f2f2;text-align: center;color: #b1dae0;font-weight: 500;}
+.ui-btn-wrap{padding: 0;margin: 8px auto;height: 40px;width: 94%;border: 1px solid #B1DAE0;
+    border-radius: 5px;}
+   .ui-btn, .ui-btn-lg, .ui-btn-s {
+    width: 50%;
+    height: 40px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#fff),to(#fafafa));
+    vertical-align: top;
+    color: #5FC2C9;
+    -webkit-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+   }  

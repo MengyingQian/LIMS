@@ -1,0 +1,35 @@
+ html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
+a{ text-decoration:underline; outline:none; color: #333;-webkit-tap-highlight-color:transparent;}
+/*a:active {star:expression(this.onFocus=this.blur()); color: #333;} */
+*{padding: 0; margin: 0; font-size: 0.7rem; font-family: "黑体"; list-style-type: none;  color: #333;}
+ body{background: #f0f0f0; width: 100%; font-family: 黑体;
+	font-family:Helvetica;/*移动端默认字体*/}  
+ .main{width: 94%; background: #fff; padding: 0.5rem 3% 0.5rem 3%;}
+ .main-hd{margin: 0 auto; line-height: 1.4rem; width: 50%;text-align: center;}
+ .conten{text-indent: 2em; margin: 0 10px 5rem 10px; line-height: 1.1rem;}
+ .shoujihao{width:  95.8%; margin: 0.7rem auto 0 auto; height: 0.8rem;}
+ .shoujihao-L{float: left; margin-left: 2.06%; font-size:0.6rem;}
+ .shoujihao-L span, .shoujihao-R span{padding: 0 8px;}
+.shoujihao-R{ float: right; text-align: right; margin-right: 2.06%; font-size: 0.65rem;}
+.jishuzhichi{text-align: center; height: 1.1rem; line-height: 1.1rem; width: 100%;margin-top: 1rem;
+  font-size: 0.5rem; clear: none; margin-bottom:0.5rem;}
+.ggg{
+	margin: 0px auto;
+	width: 95%;
+	padding-left: 5%;
+	margin-top: 20px;
+	margin-bottom: 19px;
+}
+.ggg input{
+	margin: 0px auto;
+	padding-left: 5%;
+	width: 95%;
+	height: 2.2rem;
+	background: #15d616;
+	line-height: 2.2rem;
+	 color: #FFFFFF;
+	 font-size: 15px;
+	 border: none;
+	 outline: none;
+	 border-radius: 10px;
+}
